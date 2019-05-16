@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Globalization's Shadow: Human Trafficking</title>
+
+    <!-- Bootstrap -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles -->
+    <link href="../css/project-specific.css" rel="stylesheet" type="text/css">
+    <link href="../css/interactive_visualization.css" rel="stylesheet" type="text/css">
+    <link href="../css/graph.css" rel="stylesheet" type="text/css">
+    <!-- Scripts -->
+    <script src="../js/three.js" type="text/javascript"></script>
+    <script src="../js/Detector.js" type="text/javascript"></script>
+    <script src="../js/stats.min.js" type="text/javascript"></script>
+    <script src="../js/tween.min.js" type="text/javascript"></script>
+    <script src="../js/d3.js" type="text/javascript"></script>
+    <script src="https://d3js.org/d3-queue.v3.min.js" type="text/javascript"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script async src="https://apis.google.com/js/api.js"></script>
+    <script async src="https://apis.google.com/js/platform.js"></script>
+
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Avenir:100,300,300i,400,700" rel="stylesheet" type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet" type='text/css'>
+
+    <!-- Google Analytics Code -->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-27897156-6', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <script src="https://apis.google.com/js/api.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+<!-- ******* Navbar ******* -->
+<!-- Fixed navbar -->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="home.html"> Globalization's Shadow:<br> Human Trafficking</a>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="home.html">Home</a></li>
+                <li><a href="sankey.html">Countries</a></li>
+                <li><a href="real.html">People</a></li>
+                <li><a href="about.html">About</a></li>
+
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
+<div id="quizTitle">
+    <p id="quizTitle">How many victims of human trafficking do you think there are in the world?</p>
+</div>
+<div class="button quiz" id="choice1">
+    <p 1.2em id="buttonText" style=font-size:1.3em>1,000,000</p>
+</div>
+<div class="button quiz" id="choice2">
+    <p 1.2em id="buttonText" style=font-size:1.3em>5,000,000</p>
+</div>
+<div class="button quiz" id="choice3">
+    <p 1.2em id="buttonText" style=font-size:1.3em>20,000,000</p>
+</div>
+<div class="button quiz" id="choice4">
+    <p 1.2em id="buttonText" style=font-size:1.3em>40,000,000</p>
+</div>
+<div id="base">
+    <p id="base">The population of Canada is 37,000,000</p>
+</div>
+<div class="hidden" id="answerHeader">
+    <p><span id="answerHeader"></span></p>
+</div>
+<div class="hidden" id="answerText">
+    <p id="answerText"><b><i>40,000,000 </i></b> people are trapped in and living in modern
+        day slavery</p>
+</div>
+<div class="hidden" id="results">
+    <p id="answerText" style="font-family: Avenir"> This is what people have responded so far...</p>
+</div>
+
+<dl>
+    <dd class="percentage" id="answer1"></dd>
+    <dd class="percentage" id="answer2"></dd>
+    <dd class="percentage" id="answer3"></dd>
+    <dd class="percentage" id="answer4"></dd>
+
+    <div class="quizz" id="text1">
+        <p id="quizText">1 million</p>
+    </div>
+    <div class="quizz" id="text2">
+        <p id="quizText">5 million</p>
+    </div>
+    <div class="quizz" id="text3">
+        <p id="quizText">20 million</p>
+    </div>
+    <div class="quizz" id="text4">
+        <p id="quizText">40 million</p>
+    </div>
+
+    <div class="quizz" id="perc1">
+        <p id="quizText"></p>
+    </div>
+    <div class="quizz" id="perc2">
+        <p id="quizText"></p>
+    </div>
+    <div class="quizz" id="perc3">
+        <p id="quizText"></p>
+    </div>
+    <div class="quizz" id="perc4">
+        <p id="quizText"></p>
+    </div>
+</dl>
+
+<script>
+    d3.selectAll(".quizz").classed("hidden", true);
+    d3.selectAll(".percentage").classed("hidden", true);
+    runQuiz()
+    var button, row
+
+
+    async function runQuiz() {
+        // ### Sorting events ###
+        d3.select("#choice1").on("click", async function () {
+            button = 'a'
+            row = 'A2'
+            updateAnswered(false);
+            await handleClientLoad()
+            updateGraph();
+        });
+        d3.select("#choice2").on("click", async function () {
+            button = 'b'
+            row = 'B2'
+            updateAnswered(false);
+            await handleClientLoad()
+            updateGraph();
+        });
+        d3.select("#choice3").on("click", async function () {
+            button = 'c'
+            row = 'C2'
+            updateAnswered(false);
+            await handleClientLoad()
+            updateGraph();
+
+        });
+        d3.select("#choice4").on("click", async function () {
+            button = 'd'
+            row = 'D2'
+            updateAnswered(true);
+            await handleClientLoad()
+            updateGraph()
+        });
+    }
+
+    async function updateAnswered(correct) {
+        if (correct) {
+            d3.select("#answerHeader").text("Correct!")
+        } else {
+            d3.select("#answerHeader").text("Wrong!")
+        }
+        d3.selectAll("#answerHeader").classed("hidden", false);
+        d3.selectAll("#answerText").classed("hidden", false);
+        d3.selectAll("#base").classed("hidden", true);
+        d3.selectAll("#results").classed("hidden", false);
+
+        switchWindows();
+    }
+
+    async function switchWindows() {
+        var random_boolean = Math.random() >= 0.5;
+        if (random_boolean) {
+            var site = "sankey.html"              //TO DO: change to sankey.html
+        } else {
+            var site = "sankey.html"
+        }
+        window.setTimeout(function () {
+            // Move to a new location or you can do something else
+            window.location.href = site;
+        }, 14000);
+    }
+
+    async function readDB() {
+        const xhttp = new XMLHttpRequest();
+        const url = "https://cors-anywhere.herokuapp.com/https://3qypnv0s4e.execute-api.us-east-2.amazonaws.com/final/";
+        var g;
+        var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": url,
+            "method": "GET",
+            'success': function (data) {
+                return (data[0]);
+            }
+        }
+        var data = await $.ajax(settings);
+        return data[0];
+    }
+
+    async function makeApiCall() {
+        var params = {
+            // The ID of the spreadsheet to update.
+            spreadsheetId: '1e3DUnU-bhHqv0y0-MVJz4JykvuzKGWYQJs8VTWsOYVY',  // TODO: Update placeholder value.
+
+            // The A1 notation of the values to update.
+            range: row,  // TODO: Update placeholder value.
+
+            // How the input data should be interpreted.
+            valueInputOption: 'USER_ENTERED',  // TODO: Update placeholder value.
+        };
+
+        var db = await readDB()
+        var current = db[button]
+        var valueRangeBody = {
+            "values": [[current + 1]]
+        };
+
+        var request = gapi.client.sheets.spreadsheets.values.update(params, valueRangeBody);
+        request.then(function (response) {
+            // TODO: Change code below to process the `response` object:
+            console.log(response.result);
+        }, function (reason) {
+            console.error('error: ' + reason.result.error.message);
+        });
+        console.log('api')
+    }
+
+    async function initClient() {
+        var API_KEY = 'AIzaSyAGjSHeqPE03wjKAMh5HJrO9UJwTxErNow';  // TODO: Update placeholder with desired API key.
+
+        var CLIENT_ID = '133698476858-edb7ldira2kjjc7aac0pemahvi8teo1k.apps.googleusercontent.com';  // TODO: Update placeholder with desired client ID.
+
+        // TODO: Authorize using one of the following scopes:
+        //   'https://www.googleapis.com/auth/drive'
+        //   'https://www.googleapis.com/auth/drive.file'
+        //   'https://www.googleapis.com/auth/spreadsheets'
+        var SCOPE = 'https://www.googleapis.com/auth/spreadsheets';
+
+        gapi.client.init({
+            'apiKey': API_KEY,
+            'clientId': CLIENT_ID,
+            'scope': SCOPE,
+            'discoveryDocs': ['https://sheets.googleapis.com/$discovery/rest?version=v4'],
+        }).then(function () {
+            handleSignInClick();
+            gapi.auth2.getAuthInstance().isSignedIn.listen(updateSignInStatus);
+            updateSignInStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+        });
+    }
+
+    async function handleClientLoad() {
+        await gapi.load('client:auth2', initClient);
+        return
+    }
+
+    function updateSignInStatus(isSignedIn) {
+        if (isSignedIn) {
+            makeApiCall();
+        } else {
+            console.log("not signed in")
+        }
+    }
+
+    function handleSignInClick(event) {
+        gapi.auth2.getAuthInstance().signIn();
+    }
+
+    async function updateGraph() {
+        var db = await readDB();
+        var choice = [db['a'], db['b'], db['c'], db['d']]
+
+        var total = choice[1] + choice[2] + choice[3] + choice[0]
+        var answer = []
+        var width = 220
+
+        choice.forEach(function (d) {
+            answer.push(d * 100 / total)
+        })
+        var a1 = document.getElementById("answer1");
+        var a2 = document.getElementById("answer2");
+        var a3 = document.getElementById("answer3");
+        var a4 = document.getElementById("answer4");
+
+        var t1 = document.getElementById("perc1");
+        var t2 = document.getElementById("perc2");
+        var t3 = document.getElementById("perc3");
+        var t4 = document.getElementById("perc4");
+
+        a1.style.width = answer[0].toFixed(1) + '%';
+        a2.style.width = answer[1].toFixed(1) + '%';
+        a3.style.width = answer[2].toFixed(1) + '%';
+        a4.style.width = answer[3].toFixed(1) + '%';
+
+        t1.textContent = answer[0].toFixed(1) + '%';
+        t2.textContent = answer[1].toFixed(1) + '%';
+        t3.textContent = answer[2].toFixed(1) + '%';
+        t4.textContent = answer[3].toFixed(1) + '%';
+
+
+        d3.select("#perc1")
+            .style("left", (answer[0] * 2.7 + 522).toFixed(1) + 'px');
+        d3.select("#perc2")
+            .style("left", (answer[1] * 2.7 + 522).toFixed(1) + 'px');
+        d3.select("#perc3")
+            .style("left", (answer[2] * 2.7 + 522).toFixed(1) + 'px');
+        d3.select("#perc4")
+            .style("left", (answer[3] * 2.7 + 522).toFixed(1) + 'px');
+
+
+        d3.selectAll(".quizz").classed("hidden", false);
+        d3.selectAll(".percentage").classed("hidden", false);
+        console.log("graph")
+    }
+</script>
+<!-- ****** Scripts ****** -->
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="../js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#myModal").modal('show');
+    });
+</script>
+</body>
+</html>

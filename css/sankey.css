@@ -1,0 +1,92 @@
+
+body {
+    --descriptionColor: #BFBFBF;
+}
+
+/****** Header and Legend CSS Info *********/
+#victimTitle {
+    position: absolute;
+    top: 120px;
+    left: 60px;
+    width: 100%;
+    padding: 5px;
+    text-align: left;
+    font-weight: 300;
+    font-size: 1.9em;
+    color: var(--descriptionColor);
+}
+
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    display: block;
+    float: bottom;
+}
+
+li p {
+    display: inline-block;
+    padding-top: 3px;
+    padding-bottom: 15px;
+    padding-left: 0;
+    padding-right: 0;
+    text-align: center;
+}
+
+
+.button {
+    background-color: #333333;
+    position: absolute;
+    font-family: Avenir, "Serif";
+    width: 120px;
+    z-index: 100;
+    font-size: 0.7em;
+    top: 180px;
+    text-align: center;
+    border-radius: 100px;
+    height: 23px;
+    /*display: -webkit-flex;*/
+    /*display: flex;*/
+    /*align-items: center;*/
+    cursor: pointer;
+}
+
+.color {
+    left: 26px;
+}
+
+
+#sortSankey {
+    top: 180px;
+    left: 70px;
+}
+
+#sortAll {
+    left: 140px;
+}
+
+#sortTop {
+    left: 270px;
+}
+
+#sortBottom {
+    left: 400px;
+}
+
+#sortTopGDP {
+    left: 530px;
+}
+
+#sortBottomGDP {
+    left: 660px;
+}
+
+.chart {
+    position: absolute;
+    left: 150px;
+    top: 220px;
+    width: 1200px;
+}

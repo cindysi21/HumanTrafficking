@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Globalization's Shadow: Human Trafficking</title>
+
+    <!-- Bootstrap -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles -->
+    <link href="../css/project-specific.css" rel="stylesheet" type="text/css">
+    <link href="../css/interactive_visualization.css" rel="stylesheet" type="text/css">
+
+    <!-- Scripts -->
+    <script src="../js/three.js" type="text/javascript"></script>
+    <script src="../js/Detector.js" type="text/javascript"></script>
+    <script src="../js/stats.min.js" type="text/javascript"></script>
+    <script src="../js/tween.min.js" type="text/javascript"></script>
+    <script src="../js/d3.js" type="text/javascript"></script>
+    <script src="https://d3js.org/d3-queue.v3.min.js" type="text/javascript"></script>
+
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Avenir:100,300,300i,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+
+    <!-- Google Analytics Code -->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-27897156-6', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+<!-- ******* Navbar ******* -->
+<!-- Fixed navbar -->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header" font="Lora">
+            <a class="navbar-brand" href="../index.html"> Globalization's Shadow:<br> Human Trafficking</a>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="sankey.html">Countries</a></li>
+                <li><a href="real.html">People</a></li>
+                <li class="active"><a href="about.html">About</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
+<div class="section">
+    <div class="container container-narrow">
+         <h2>ABOUT</h2>
+    <p>Human trafficking is a global phenomena. Over 40 million people are trafficked each year and trafficking is
+        embedded within the global economy, as trafficked laborers create products that are shipped into our homes and
+        trafficked sex workers work in cities around the world. The UN has taken up goals to prevent and monitor
+        trafficking yet little is still understood about trafficking, as data collection, monitoring, and enforcement
+        remain sporadic. This has not stopped countries from exploiting fears about trafficking, using the public’s
+        lack of awareness of trafficking to make <a href="https://www.apnews.com/4f0e224371a74c00bcd6dd41dae5584f">
+            false claims about trafficking</a> as a way to justify harsh border restrictions.
+    <br><br>
+    We used data from the International Organization of Migration, which contains information about people
+    trafficked between 2002 and 2018 to create a website that engages the general audience and creates awareness about
+    the topic of human trafficking, which is constantly an invisible type of migration. The visualizations are intended
+    to be used as data exploration tools, both the varieties of ways trafficking operates--within and across countries,
+    and involving both rich and poor countries--and to display how much data is still missing even from public
+    data-collection tools. This will allow the general public, NGOs and other institutions to explore in detail the
+        data and help them advocate for policies to prevent trafficking.</p>
+        <h2>VISUALIZATIONS</h2>
+    <p>
+    The colors and fonts used intend to create a sober and dramatic aesthetic, to convey the seriousness of this
+        topic, while at the same time artistic, to attract and engage a general audience that might not be
+        familiar with human trafficking.<br><br>
+        We wanted to engage the visitor from their first interaction with the website, which is why we start with a
+        survey that the visitors can interact with, and show in real time what others believe to be the total number of
+        people trafficked. By showing these results, we believe that the public will compare to others, but also learn
+        how the general perception of the total number of people trafficked is actually lower than the real magnitude.
+        <br><br>
+        The two visualizations that we created are a dot map, to explore the demographics and characteristics of the
+        people trafficked between 2002 and 2018, and a Sankey diagram, to explore the flows of people between countries.<br><br>
+
+        In the dot map, every dot represents a person, from a total of XXXX. The data can be symbolized with different
+        colors and ordered by different categories. This maintains the granularity of the data but allows to shows
+        general patterns of the dataset. On the other hand, the Sankey Diagram shows the relationship between people
+        trafficked and the location they have been trafficked from and to. This helps identify which countries are the
+        ones where most people have been trafficked, the flow between countries, and where there is more internal
+        (trafficked inside their own country) or external (trafficked to outside of their country) human trafficking.
+    </p>
+    <h2>LIMITATIONS</h2>
+    <p>
+        As we sorted through and picked apart the dataset from the International Organization for Migration we realized
+        that one of the biggest obstacles in the way of combating human trafficking is its lack of reliable and
+        comprehensive data. The availability of data for each country depends heavily on the presence of IOM programming
+        and their government’s response rating and policies against human trafficking. The paradox of this is that human
+        trafficking data is most needed in places with the least amount of governmental supervision and international
+        organization presence since that is most likely where it is the most invisible and the most prevalent. However,
+        those places are also the countries with the least amount of available data in the database. As a result, places
+        that appear to have low or high levels of trafficking in our visualization may just be those places that collect
+        the least or most data on trafficking, or do the best job of detecting and monitoring trafficking.<br><br>
+        Using the Global Slavery Index (hyperlink) as a reference for vulnerability to modern day slavery and governmental
+        response rating, we find that of the top 25 most vulnerable countries, with scores ranging between 65.6 and 100),
+        the IOM only has data on 3 and the aggregate data makes up only .84% of the entire database. Our main limitation
+        in creating a useful visualization was the lack of comprehensive and representative data. The data we used to
+        derive our information from validates the name of our project: Human Trafficking is a shadow - impossible to
+        pinpoint and catch, and at many times invisible.
+    </p>
+    <h2>ANTI-TRAFFICKING RESOURCES</h2>
+    <p>If you suspect you’ve witnessed someone being trafficked, you should call the National Human Trafficking Hotline
+        at 1-888-373-7888, text the hotline at 233733, or chat with the hotline on the hotlines
+        <a href="https://humantraffickinghotline.org/">website</a>.
+    <br><br>
+    If you want to learn more about human trafficking or become more involved in anti-trafficking work, you can visit
+    the following resources and organizations:<br>
+
+    <ul>
+        <li><a href="https://polarisproject.org/about">The Polaris Project</a>, an anti-human trafficking organization
+            that provides services to trafficked persons and conducts anti-trafficking advocacy and research.</li>
+        <li><a href="https://www.ilo.org/global/topics/forced-labour/lang--en/index.htm">The International Labour
+            Organization</a>, whose Forced Labour and Forced Marriage report provides the global estimates of trafficking.</li>
+        <li><a href="https://www.unodc.org/unodc/en/human-trafficking/index.html">The United Nations Office on Drugs
+            and Crime</a>, whose <a href="https://www.unodc.org/documents/data-and-analysis/glotip/2018/GLOTiP_2018_BOOK_web_small.pdf">
+            Global Report on Trafficking in Persons</a> provides additional data on trafficking as well as region-level
+            information on trafficking flows, and whose <a href="https://www.unodc.org/pdf/HT_indicators_E_LOWRES.pdf">
+                human trafficking indicators</a> provide ways to recognize trafficking when you see it.</li>
+        <li><a href="https://www.globalslaveryindex.org/">The Global Slavery Index</a>, which visualizes trafficking
+            vulnerability and tracks government responsiveness to human trafficking.</li>
+        <li><a href="https://www.ctdatacollaborative.org/">The Counter Trafficking Data Collaborative</a>, a hub of data on trafficking from different countries.</li>
+    </ul>
+    </p>
+    <h2>TEAM</h2>
+    <p>We are Cindy Si, Dani Chong, and Dan Powers, a team of three students at MIT who worked on this project for our
+        Big Data Visualization and Society Class for our professor, <a href="https://dusp.mit.edu/faculty/sarah-williams">Sarah Williams</a>. Our assignment was to create a
+        visualization to show information about a topic related to migration. We chose human trafficking because
+        although it is a violation of human rights and is intertwined with the global economy, there is a lack of
+        awareness about the topic and its real magnitude.
+        <br><br>
+        The inspiration for our visualizations came from <a href="https://kaz-ogiwara.github.io/works/viz4socialgood/?fbclid=IwAR1_0hXNFOxH6bT0AR18m41gZBpmkEalAuRdFhp1Gb-sGzcoJueMNBqmol0">Kazuki Ogiwara’s sankey diagram and map</a> displaying information
+        on trafficking, and from the project <a href="https://conflicturbanismcolombia.com/index.html">Conflict Urbanism: Colombia</a> created by the Center for Spatial Research at
+        Columbia University, and the Masters in Peace Building at the Universidad de Los Andes.
+    </p>
+    </div>
+</div>

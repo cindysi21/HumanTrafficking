@@ -1,0 +1,2579 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<title>Globalization's Shadow: Human Trafficking</title>
+
+	<!-- Bootstrap -->
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Custom styles -->
+	<link rel="stylesheet" type="text/css" href="../css/project-specific.css">
+	<link rel="stylesheet" type="text/css" href="../css/interactive_visualization.css">
+
+	<!-- Scripts -->
+	<script type="text/javascript" src="../js/three.js"></script>
+	<script type="text/javascript" src="../js/Detector.js"></script>
+	<script type="text/javascript" src="../js/stats.min.js"></script>
+	<script type="text/javascript" src="../js/tween.min.js"></script>
+	<script type="text/javascript" src="../js/d3.js"></script>
+	<script type="text/javascript" src="https://d3js.org/d3-queue.v3.min.js"></script>
+
+	<!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Avenir:100,300,300i,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+
+	<!-- Google Analytics Code -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-27897156-6', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+	<!-- ******* Navbar ******* -->
+  <!-- Fixed navbar -->
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+          <a class="navbar-brand" href="home.html"> Globalization's Shadow:<br> Human Trafficking</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="sankey.html">Countries</a></li>
+            <li class="active"><a href="real.html">People</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </nav>
+
+	<!-- Title Text and Header -->
+	<div id="victimTitle">
+        <p>Did you know...</p>
+	</div>
+
+	<div id="legends">
+		<ul>
+			<li id="legend01">
+				<div class="legendRect" id="legendRect01"></div>
+				<p><span id="legend01Text"></span></p>
+			</li>
+			<li id="legend02">
+				<div class="legendRect" id="legendRect02"></div>
+				<p><span id="legend02Text"></span></p>
+			</li>
+			<li id="legend03">
+				<div class="legendRect" id="legendRect03"></div>
+				<p><span id="legend03Text"></span></p>
+			</li>
+			<li id="legend04">
+				<div class="legendRect" id="legendRect04"></div>
+				<p><span id="legend04Text"></span></p>
+			</li>
+			<li id="legend05">
+				<div class="legendRect" id="legendRect05"></div>
+				<p><span id="legend05Text"></span></p>
+			</li>
+			<li id="legend06">
+				<div class="legendRect" id="legendRect06"></div>
+				<p><span id="legend06Text"></span></p>
+			</li>
+			<li id="legend07">
+				<div class="legendRect" id="legendRect07"></div>
+				<p><span id="legend07Text"></span></p>
+			</li>
+			<li id="legend08">
+				<div class="legendRect" id="legendRect08"></div>
+				<p><span id="legend08Text"></span></p>
+			</li>
+			<li id="legend09">
+				<div class="legendRect" id="legendRect09"></div>
+				<p><span id="legend09Text"></span></p>
+			</li>
+			<li id="legend10">
+				<div class="legendRect" id="legendRect10"></div>
+				<p><span id="legend10Text"></span></p>
+			</li>
+			</ul>
+		</div>
+	<div id="legends2">
+		<ul>
+			<li id="legend11">
+				<div class="legendRect" id="legendRect11"></div>
+				<p><span id="legend11Text"></span></p>
+			</li>
+			<li id="legend12">
+				<div class="legendRect" id="legendRect12"></div>
+				<p><span id="legend12Text"></span></p>
+			</li>
+			<li id="legend13">
+				<div class="legendRect" id="legendRect13"></div>
+				<p><span id="legend13Text"></span></p>
+			</li>
+			<li id="legend14">
+				<div class="legendRect" id="legendRect14"></div>
+				<p><span id="legend14Text"></span></p>
+			</li>
+			<li id="legend15">
+				<div class="legendRect" id="legendRect15"></div>
+				<p><span id="legend15Text"></span></p>
+			</li>
+			<li id="legend16">
+				<div class="legendRect" id="legendRect16"></div>
+				<p><span id="legend16Text"></span></p>
+			</li>
+			<li id="legend17">
+				<div class="legendRect" id="legendRect17"></div>
+				<p><span id="legend17Text"></span></p>
+			</li>
+		</ul>
+	</div>
+
+	<div class="button sort" style="background-color: #000000; display: flex;" id="sortTitle">
+		<p id="buttonText">Order by:</p>
+	</div>
+	<div class="button sort" id="sortType">
+		<p id="buttonText">Exploitation Type</p>
+	</div>
+	<div class="button sort" id="sortAge">
+		<p id="buttonText">Age</p>
+	</div>
+	<div class="button sort" id="sortGender">
+		<p id="buttonText">Gender</p>
+	</div>
+	<div class="button sort" id="sortEventDate">
+		<p id="buttonText">Registration Year</p>
+	</div>
+	<div class="button sort" id="sortCitizenship">
+			<p id="buttonText">Citizenship</p>
+	</div>
+	<div class="button sort" id="sortExploit">
+		<p id="buttonText">Country of Exploitation</p>
+	</div>
+	
+
+	<!-- Divs to color -->
+	<div class="button color" style="background-color: #000000; display: flex;" id="colorTitle">
+		<p id="buttonText">Symbolize by:</p>
+	</div>
+	<div class="button color" id="colorType">
+		<p id="buttonText">Exploitation Type</p>
+	</div>
+	<div class="button color" id="colorAge">
+		<p id="buttonText">Age</p>
+	</div>
+	<div class="button color" id="colorGender">
+		<p id="buttonText">Gender</p>
+	</div>
+	<div class="button color" id="colorEventDate">
+		<p id="buttonText">Registration Year</p>
+	</div>
+	<div class="button color" id="colorCitizenship">
+		<p id="buttonText">Citizenship</p>
+	</div>
+	<div class="button color" id="colorExploit">
+		<p id="buttonText">Country of Exploitation</p>
+
+
+	</div>
+
+	<div id="messageTitle">
+		<p>Every dot represents a person trafficked between 2002 and 2018, out of a total of 55,434. Source:
+			International Organization for Migrations <br> * symbolizes percentages excluding unknown cases <br>
+			** vulnerability scores, governmental response rates and estimates from
+			<a href="https://www.globalslaveryindex.org/2018/data/maps/#prevalence">The Global Slavery Index</a> </p>
+	</div>
+	<div id="tooltip" class="hidden">
+		<p><span id="dateText">100</span></p>
+		<p><span id="typeText">100</span></p>
+		<p><span id="ageText">100</span></p>
+		<p><span id="genderText">100</span></p>
+		<p><span id="citizenshipText">100</span></p>
+		<p><span id="exploitText">100</span></p>
+	</div>
+
+	<div id="loading">
+		<p>Loading...</p>
+	</div>
+
+	<script>
+
+	// ########################## JAVASCRIPT + THREE.JS ############################
+	// Webgl error message
+	if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+	// ############################# GLOBAL VARIABLES ##############################
+	var container, stats;
+    var camera, scene, renderer, raycaster, particles, geometry, materials = [], colors = [], parameters, i, h, color,
+        size;
+	var clock = new THREE.Clock();
+	var viewSize, aspectRatio, myWidth, myHeight;
+	var duration = currentTime = 3;
+	var windowHalfX = window.innerWidth / 2;
+	var windowHalfY = window.innerHeight / 2;
+	// Setup view settings
+    viewSize = 850;
+	aspectRatio = window.innerWidth / window.innerHeight;	//SQUASH BUG HERE!!!
+	myHeight = viewSize;
+	myWidth = parseInt(viewSize*aspectRatio);
+	var originalWidth = myWidth;
+	var dataPadding = 400;
+	// For best viewing on my display, 1:1 ratio
+    var rectSize = 1.9; //1.5 //1
+    var rectSpacerW = rectSpacerH = 1.1; //1
+	var mouse = new THREE.Vector2();
+	var threshold = rectSize; //rectSpacerW*2;
+	var sphere;
+	var raycastOn;
+	var buttonColorOn = "#7F7F7F";
+	var buttonColorOff = "#333333";
+	var myFileDataPaths = ['../data/world_bank_data.csv', '../data/world_bank_data.csv'];
+	// Variables to record which munipality data points to highlight, if any
+	var boolMouseOnDropDown = false;
+    var currentColor, currentOrder;
+	//Victims dataset
+	var datasetVictims = [];
+	//Timeline dataset
+    var eventTimeline = [[0, '2002'], [1129, '2003'], [1508, '2004'], [1758, '2005'], [3375, '2006'],
+        [4909, '2007'], [6378, '2008'], [7206, '2009'], [8039, '2010'], [9560, '2011'], [11383, '2012'],
+        [12778, '2013'], [14920, '2014'], [18062, '2015'], [24866, '2016'], [43759, '2017'], [54164, '2018']];
+	var typeTimeline = [[0, 'Forced Labour'], [29320, ''], [28946, ''], [28975, ''], [9816, 'Sexual Exploitation'],
+		[29474, 'Other'], [36540, 'n/a']]
+	var ageTimeline = [[0, '0-8'], [1739, '9-17'], [9373, '18-20'], [13514, '21-23'], [17527, '24-26'], [20838, '27-29'],
+		[23334, '30-38'], [30040, '39-47'], [32719, '48+'], [34221, 'n/a']]
+	var genderTimeline = [[0, 'Male'], [14444, 'Female'], [54796, 'n/a']]
+	var exploitTimeline = [[0, 'AFR.'], [1238, 'ASIA'], [2494, '  ID'], [4270, ''],
+		[4393, ''], [4723, ''], [5011, ''], [5918, ''], [6012, 'PH'], [8000, ''], [8239, ''],
+		[8574, ''], [9148, ''],  [9436, ''], [9951, ''],  [10160, 'EU.'],  [10229, ''], [10610, ''],
+		[11093, ''], [11147, ''],[11386, 'MD'],  [17084, ''], [20496, 'UA'], [25804, 'NA. USA'],
+		[26252, ''], [43208, 'SA. ZZ'], [43298, '']]
+	var citizenTimeline = [[0, 'AFR.'], [1345, 'ASIA'], [1595, ''], [3674, 'ID'], [5621, ''],
+		[5675, ''], [6136, ''], [6266, 'MM'], [7546, ''], [7573, 'PH'], [19006, ''],
+		[19338, ''], [19784, 'EU.'], [21346, 'MD'], [29187, ''], [29872, 'UA'], [37665, 'NA. USA'], [37676, ''],
+		[38028, ''], [38473, ''], [42500, 'SA. ZZ'], [42800, '']]
+
+	if(viewSize == 800) {
+		var hardCodeTimelineMin = 103;
+		var hardCodeTimelineMax = 967;
+	} else if (viewSize == 850){
+		var hardCodeTimelineMin = 70;
+		var hardCodeTimelineMax = 1095;
+	} else{
+        var hardCodeTimelineMin = 70;
+        var hardCodeTimelineMax = 1320;
+	}
+	var hardCodeDataLen = 55434;
+	var timelineTagEvent = 4;
+	var first
+
+	//Create as many timeline da events as there are data
+	d3.select("body").selectAll(".timeline#event")
+	.data(eventTimeline)
+	.enter()
+	.append('div')
+	.attr('class', 'timeline')
+	.attr('id', 'event')
+	.style('left', function(d,i){
+		var canvasX = getXYCoordinates(d[0], myWidth, myHeight)[0];
+        canvasX = map_range(canvasX, getXYCoordinates(0, myWidth, myHeight)[0],
+            getXYCoordinates(hardCodeDataLen, myWidth, myHeight)[0], hardCodeTimelineMin, hardCodeTimelineMax);
+		return canvasX+"px";
+	})
+	.append('p')
+	.attr('id', 'timelineText')
+	.text(function(d){
+        if (parseInt(d[1]) != 2002) {
+			if (parseInt(d[1]) % timelineTagEvent == 0) {
+				return d[1];
+			}
+		}
+	});
+	//Create tick marks
+	d3.select("body").selectAll('.timelineTick#event')
+	.data(eventTimeline)
+	.enter()
+	.append('div')
+	.attr('class', 'timelineTick')
+	.attr('id', 'event')
+	.style('left', function(d,i){
+		var canvasX = getXYCoordinates(d[0], myWidth, myHeight)[0];
+        canvasX = map_range(canvasX, getXYCoordinates(0, myWidth, myHeight)[0],
+            getXYCoordinates(hardCodeDataLen, myWidth, myHeight)[0], hardCodeTimelineMin, hardCodeTimelineMax);
+		return canvasX+"px";
+	});
+
+	d3.select("body").selectAll(".timeline#type")
+			.data(typeTimeline)
+			.enter()
+			.append('div')
+			.attr('class', 'timeline')
+			.attr('id', 'type')
+			.style('left', function (d, i) {
+				var canvasX = getXYCoordinates(d[0], myWidth, myHeight)[0];
+				canvasX = map_range(canvasX, getXYCoordinates(0, myWidth, myHeight)[0],
+						getXYCoordinates(hardCodeDataLen, myWidth, myHeight)[0], hardCodeTimelineMin, hardCodeTimelineMax);
+				return canvasX + "px";
+			})
+			.append('p')
+			.attr('id', 'timelineText')
+			.text(function (d) {
+				return d[1];
+			});
+	//Create tick marks
+	d3.select("body").selectAll('.timelineTick#type')
+			.data(typeTimeline)
+			.enter()
+			.append('div')
+			.attr('class', 'timelineTick')
+			.attr('id', 'type')
+			.style('left', function (d, i) {
+				var canvasX = getXYCoordinates(d[0], myWidth, myHeight)[0];
+				canvasX = map_range(canvasX, getXYCoordinates(0, myWidth, myHeight)[0],
+						getXYCoordinates(hardCodeDataLen, myWidth, myHeight)[0], hardCodeTimelineMin, hardCodeTimelineMax);
+				return canvasX + "px";
+			});
+
+	d3.select("body").selectAll(".timeline#gender")
+			.data(genderTimeline)
+			.enter()
+			.append('div')
+			.attr('class', 'timeline')
+			.attr('id', 'gender')
+			.style('left', function (d, i) {
+				var canvasX = getXYCoordinates(d[0], myWidth, myHeight)[0];
+				canvasX = map_range(canvasX, getXYCoordinates(0, myWidth, myHeight)[0],
+						getXYCoordinates(hardCodeDataLen, myWidth, myHeight)[0], hardCodeTimelineMin, hardCodeTimelineMax);
+				return canvasX + "px";
+			})
+			.append('p')
+			.attr('id', 'timelineText')
+			.text(function (d) {
+				return d[1];
+			});
+	//Create tick marks
+	d3.select("body").selectAll('.timelineTick#gender')
+			.data(genderTimeline)
+			.enter()
+			.append('div')
+			.attr('class', 'timelineTick')
+			.attr('id', 'gender')
+			.style('left', function (d, i) {
+				var canvasX = getXYCoordinates(d[0], myWidth, myHeight)[0];
+				canvasX = map_range(canvasX, getXYCoordinates(0, myWidth, myHeight)[0],
+						getXYCoordinates(hardCodeDataLen, myWidth, myHeight)[0], hardCodeTimelineMin, hardCodeTimelineMax);
+				return canvasX + "px";
+			});
+
+	d3.select("body").selectAll(".timeline#age")
+			.data(ageTimeline)
+			.enter()
+			.append('div')
+			.attr('class', 'timeline')
+			.attr('id', 'age')
+			.style('left', function (d, i) {
+				var canvasX = getXYCoordinates(d[0], myWidth, myHeight)[0];
+				canvasX = map_range(canvasX, getXYCoordinates(0, myWidth, myHeight)[0],
+						getXYCoordinates(hardCodeDataLen, myWidth, myHeight)[0], hardCodeTimelineMin, hardCodeTimelineMax);
+				return canvasX + "px";
+			})
+			.append('p')
+			.attr('id', 'timelineText')
+			.text(function (d) {
+				return d[1];
+			});
+	//Create tick marks
+	d3.select("body").selectAll('.timelineTick#age')
+			.data(ageTimeline)
+			.enter()
+			.append('div')
+			.attr('class', 'timelineTick')
+			.attr('id', 'age')
+			.style('left', function (d, i) {
+				var canvasX = getXYCoordinates(d[0], myWidth, myHeight)[0];
+				canvasX = map_range(canvasX, getXYCoordinates(0, myWidth, myHeight)[0],
+						getXYCoordinates(hardCodeDataLen, myWidth, myHeight)[0], hardCodeTimelineMin, hardCodeTimelineMax);
+				return canvasX + "px";
+			});
+
+	d3.select("body").selectAll(".timeline#citizen")
+			.data(citizenTimeline)
+			.enter()
+			.append('div')
+			.attr('class', 'timeline')
+			.attr('id', 'citizen')
+			.style('left', function (d, i) {
+				var canvasX = getXYCoordinates(d[0], myWidth, myHeight)[0];
+				canvasX = map_range(canvasX, getXYCoordinates(0, myWidth, myHeight)[0],
+						getXYCoordinates(hardCodeDataLen, myWidth, myHeight)[0], hardCodeTimelineMin, hardCodeTimelineMax);
+				return canvasX + "px";
+			})
+			.append('p')
+			.attr('id', 'timelineText')
+			.text(function (d) {
+				return d[1];
+			});
+	//Create tick marks
+	d3.select("body").selectAll('.timelineTick#citizen')
+			.data(citizenTimeline)
+			.enter()
+			.append('div')
+			.attr('class', 'timelineTick')
+			.attr('id', 'citizen')
+			.style('left', function (d, i) {
+				var canvasX = getXYCoordinates(d[0], myWidth, myHeight)[0];
+				canvasX = map_range(canvasX, getXYCoordinates(0, myWidth, myHeight)[0],
+						getXYCoordinates(hardCodeDataLen, myWidth, myHeight)[0], hardCodeTimelineMin, hardCodeTimelineMax);
+				return canvasX + "px";
+			});
+
+	d3.select("body").selectAll(".timeline#exploit")
+			.data(exploitTimeline)
+			.enter()
+			.append('div')
+			.attr('class', 'timeline')
+			.attr('id', 'exploit')
+			.style('left', function (d, i) {
+				var canvasX = getXYCoordinates(d[0], myWidth, myHeight)[0];
+				canvasX = map_range(canvasX, getXYCoordinates(0, myWidth, myHeight)[0],
+						getXYCoordinates(hardCodeDataLen, myWidth, myHeight)[0], hardCodeTimelineMin, hardCodeTimelineMax);
+				return canvasX + "px";
+			})
+			.append('p')
+			.attr('id', 'timelineText')
+			.text(function (d) {
+				return d[1];
+			});
+	//Create tick marks
+	d3.select("body").selectAll('.timelineTick#exploit')
+			.data(exploitTimeline)
+			.enter()
+			.append('div')
+			.attr('class', 'timelineTick')
+			.attr('id', 'exploit')
+			.style('left', function (d, i) {
+				var canvasX = getXYCoordinates(d[0], myWidth, myHeight)[0];
+				canvasX = map_range(canvasX, getXYCoordinates(0, myWidth, myHeight)[0],
+						getXYCoordinates(hardCodeDataLen, myWidth, myHeight)[0], hardCodeTimelineMin, hardCodeTimelineMax);
+				return canvasX + "px";
+			});
+
+	//Hide the timelines
+	d3.selectAll(".timeline").classed("hidden", true);
+	//Hide the timeline tick marks
+	d3.selectAll(".timelineTick").classed("hidden", true);
+	//Run our script, this function and d3 prevent viz from running before data is fully loaded
+	parseMyFile(myFileDataPaths);
+
+	// #############################################################################
+	// ###### Parses data and establishes queue to load data before viz is run #####
+	// #############################################################################
+
+	function parseMyFile(myFileNames) {
+		var q = d3.queue();
+		q.defer(function(callback) {
+			d3.csv(myFileNames[0], function(res) {
+				//By default, csv loads all data as strings, here we parse the data into other data types
+				res.forEach(function(d,i) {
+					d.key = i;							//we also add a temporary key value
+
+					d.uniqueRank_gender = +d.uniqueRank_gender;
+					d.uniqueRank_ageBroad = +d.uniqueRank_ageBroad;
+					d.uniqueRank_citizenship = +d.uniqueRank_citizenship;
+					d.uniqueRank_countryExploited = +d.uniqueRank_countryExploited;
+					d.uniqueRank_event_date = +d.uniqueRank_event_date;
+					d.uniqueRank_type = +d.uniqueRank_type;
+					
+					d.thisColor = [0,0,0];
+				});
+
+				//Passes data to the queue once we have loaded datat
+				callback(null, res);
+			});
+		});
+		q.defer(function(callback) {
+	      d3.tsv(myFileNames[1], function(res2) {
+	        callback(null, res2);
+	      });
+	    });
+		//Once data has loaded, execute rest of code
+		q.awaitAll(restOfCode);
+	};
+
+	// #############################################################################
+	// ################# AFTER DATA HAS LOADED, RUN THE REST #######################
+	// #############################################################################
+
+	function restOfCode(err, results) {
+		// Set dataset to the data d3 just loaded in the queue
+		datasetVictims = results[0];
+	
+		var dataSetLen = datasetVictims.length;
+
+		//Hide loading text
+		d3.select("#loading").classed("hidden", true);
+
+		// Three JS functions to first initialize and then animate the scene
+		init();
+		animate();
+
+		// #############################################################
+		// ################# D3 div Click Events #######################
+		// #############################################################
+
+		// ### Sorting events ###
+
+		//D3 to Handle click events on sorting our divs
+		//d3 listens for when our divs are clicked and then prompts the animation to reset
+		d3.select("#sortEventDate").on("click", function () {
+			// Tell Three JS that we need to update the animation
+			resetAnimation();
+			// Update the 3vectors for all of the particles loaded
+			// Each particle has an associated vector, the intial position being the current position of the particle and
+			// the final positoin being the indexed XY coordinate of the particle depending on which sort the user has picked
+			// Using a timer that is reset each time one of thee sorts is clicked, the animation moves the particle in a straight line
+			// from the initial to the final position by multiplying the vector between the two points by 1/(time left in transition
+			// animation). Here, for each particle we simply update the start position to the particles current position, the end
+			// position to be the user specified sort XY coordinate, and the direction to be the vector b/w those two points.
+			// The particles are moved along these vectors in the animate portion of the code.
+			for (i = 0; i < dataSetLen; i ++){
+                currentOrder = "event"
+				var thisDataPt = datasetVictims[i];
+				// Make sure the start position is the current 3vector
+				var start3Vector = new THREE.Vector3(geometry.vertices[i].x, geometry.vertices[i].y, geometry.vertices[i].z);
+				// Find the new desired XY coordinates
+				var newXY = getXYCoordinates(thisDataPt.key, myWidth, myHeight);
+				var end3Vector = new THREE.Vector3(newXY[0], newXY[1], 0);
+				// Compute the vector between these two points
+				geometry.vertices[i].startPosition = start3Vector;
+				geometry.vertices[i].endPosition = end3Vector;
+				geometry.vertices[i].direction = start3Vector.clone().sub(end3Vector);
+			}
+			updateUiSortEventDate();
+            updateFact();
+		});
+		d3.select("#sortType").on("click", function() {
+			resetAnimation();
+            currentOrder = "type"
+			//Update the 3vectors for all of the particles loaded
+			for (i = 0; i < dataSetLen; i ++){
+				var thisDataPt = datasetVictims[i];
+				var start3Vector = new THREE.Vector3(geometry.vertices[i].x, geometry.vertices[i].y, geometry.vertices[i].z);
+				var newXY = getXYCoordinates(thisDataPt.uniqueRank_type, myWidth, myHeight);
+				var end3Vector = new THREE.Vector3(newXY[0], newXY[1], 0);
+				geometry.vertices[i].startPosition = start3Vector;
+				geometry.vertices[i].endPosition = end3Vector;
+				geometry.vertices[i].direction = start3Vector.clone().sub(end3Vector);
+			}
+			updateUiSortType();
+            updateFact();
+		});
+		d3.select("#sortAge").on("click", function() {
+			resetAnimation();
+            currentOrder = "age"
+			//Update the 3vectors for all of the particles loaded
+			for (i = 0; i < dataSetLen; i ++){
+				var thisDataPt = datasetVictims[i];
+				var start3Vector = new THREE.Vector3(geometry.vertices[i].x, geometry.vertices[i].y, geometry.vertices[i].z);
+				var newXY = getXYCoordinates(thisDataPt.uniqueRank_ageBroad, myWidth, myHeight);
+				var end3Vector = new THREE.Vector3(newXY[0], newXY[1], 0);
+				geometry.vertices[i].startPosition = start3Vector;
+				geometry.vertices[i].endPosition = end3Vector;
+				geometry.vertices[i].direction = start3Vector.clone().sub(end3Vector);
+			}
+			updateUiSortAge();
+            updateFact();
+		});
+		d3.select("#sortGender").on("click", function() {
+			resetAnimation();
+            currentOrder = "gender"
+			//Update the 3vectors for all of the particles loaded
+			for (i = 0; i < dataSetLen; i ++){
+				var thisDataPt = datasetVictims[i];
+				var start3Vector = new THREE.Vector3(geometry.vertices[i].x, geometry.vertices[i].y, geometry.vertices[i].z);
+				var newXY = getXYCoordinates(thisDataPt.uniqueRank_gender, myWidth, myHeight);
+				var end3Vector = new THREE.Vector3(newXY[0], newXY[1], 0);
+				geometry.vertices[i].startPosition = start3Vector;
+				geometry.vertices[i].endPosition = end3Vector;
+				geometry.vertices[i].direction = start3Vector.clone().sub(end3Vector);
+			}
+			updateUiSortGender();
+            updateFact();
+		});
+		d3.select("#sortExploit").on("click", function() {
+			resetAnimation();
+            currentOrder = "exploit"
+			//Update the 3vectors for all of the particles loaded
+			for (i = 0; i < dataSetLen; i ++){
+				var thisDataPt = datasetVictims[i];
+				var start3Vector = new THREE.Vector3(geometry.vertices[i].x, geometry.vertices[i].y, geometry.vertices[i].z);
+				var newXY = getXYCoordinates(thisDataPt.uniqueRank_countryExploited, myWidth, myHeight);
+				var end3Vector = new THREE.Vector3(newXY[0], newXY[1], 0);
+				geometry.vertices[i].startPosition = start3Vector;
+				geometry.vertices[i].endPosition = end3Vector;
+				geometry.vertices[i].direction = start3Vector.clone().sub(end3Vector);
+			}
+			updateUiSortExploit();
+            updateFact();
+		});
+		d3.select("#sortCitizenship").on("click", function() {
+			resetAnimation();
+            currentOrder = "citizen"
+			//Update the 3vectors for all of the particles loaded
+			for (i = 0; i < dataSetLen; i ++){
+				var thisDataPt = datasetVictims[i];
+				var start3Vector = new THREE.Vector3(geometry.vertices[i].x, geometry.vertices[i].y, geometry.vertices[i].z);
+				var newXY = getXYCoordinates(thisDataPt.uniqueRank_citizenship, myWidth, myHeight);
+				var end3Vector = new THREE.Vector3(newXY[0], newXY[1], 0);
+				geometry.vertices[i].startPosition = start3Vector;
+				geometry.vertices[i].endPosition = end3Vector;
+				geometry.vertices[i].direction = start3Vector.clone().sub(end3Vector);
+			}
+			updateUiSortCitizenship();
+            updateFact();
+		});
+		d3.select("#sortEventDate").on("click", function() {
+			resetAnimation();
+            currentOrder = "event"
+			//Update the 3vectors for all of the particles loaded
+			for (i = 0; i < dataSetLen; i ++){
+				var thisDataPt = datasetVictims[i];
+				var start3Vector = new THREE.Vector3(geometry.vertices[i].x, geometry.vertices[i].y, geometry.vertices[i].z);
+				var newXY = getXYCoordinates(thisDataPt.uniqueRank_event_date, myWidth, myHeight);
+				var end3Vector = new THREE.Vector3(newXY[0], newXY[1], 0);
+				geometry.vertices[i].startPosition = start3Vector;
+				geometry.vertices[i].endPosition = end3Vector;
+				geometry.vertices[i].direction = start3Vector.clone().sub(end3Vector);
+			}
+			updateUiSortEventDate();
+            updateFact();
+		});
+
+		// ### Color Events ###
+		d3.select("#colorType").on("click", function() {
+			//Update colors of the particles
+			currentColor = 'type';
+			for (i = 0; i < dataSetLen; i ++){
+				var thisDataPt = datasetVictims[i];
+				geometry.colors[i] = colorType(thisDataPt);
+			}
+			updateUiColorType();
+            updateFact();
+		});
+		d3.select("#colorAge").on("click", function() {
+			currentColor='age';
+			for (i = 0; i < dataSetLen; i ++){
+
+				var thisDataPt = datasetVictims[i];
+				geometry.colors[i] = colorAge(thisDataPt);
+			}
+			updateUiColorAge();
+            updateFact();
+		});
+		d3.select("#colorGender").on("click", function() {
+			//Update colors of the particles
+			currentColor = 'gender';
+			for (i = 0; i < dataSetLen; i ++){
+				var thisDataPt = datasetVictims[i];
+				geometry.colors[i] = colorGender(thisDataPt);
+			}
+			updateUiColorGender();
+            updateFact();
+		});
+		d3.select("#colorExploit").on("click", function() {
+			//Update colors of the particles
+			currentColor = 'exploit';
+			for (i = 0; i < dataSetLen; i ++){
+				var thisDataPt = datasetVictims[i];
+				geometry.colors[i] = colorExploit(thisDataPt);
+			}
+			updateUiColorExploit();
+            updateFact();
+		});
+		d3.select("#colorCitizenship").on("click", function() {
+			//Update colors of the particles
+			currentColor = 'citizenship';
+			for (i = 0; i < dataSetLen; i ++){
+				var thisDataPt = datasetVictims[i];
+				geometry.colors[i] = colorCitizenship(thisDataPt);
+			}
+			updateUiColorCitizenship();
+            updateFact();
+		});
+		d3.select("#colorEventDate").on("click", function() {
+			// Update colors of the particles
+			currentColor = 'event';
+			for (i = 0; i < dataSetLen; i ++){
+				var thisDataPt = datasetVictims[i];
+				geometry.colors[i] = colorEventDate(thisDataPt);
+			}
+			updateUiColorEventDate();
+            updateFact();
+
+		});
+	}
+
+	// #############################################################################
+	// ##################### THREE JS INITIALIZATION ###############################
+	// #############################################################################
+
+	function init() {
+		// Tell Three JS where it will be on the webpage
+		container = document.createElement( 'div' );
+		document.body.appendChild( container );
+
+		// Try to make camera and padding 0 and move the camera positon to center the grid
+		if(viewSize == 800){
+            horizPadding = 0;
+            vertPadding = 0;
+			horizAdjust4center = 10;
+		} else {
+            horizPadding = 40;
+			vertPadding = 0;
+            horizAdjust4center = 0;
+			vertAdjust4center = -20;
+		};
+		// Create a Three JS camera and position it to look at our viz
+		// camera = new THREE.OrthographicCamera(-aspectRatio * viewSize / 2 -horizPadding, aspectRatio * viewSize / 2 +horizPadding, viewSize/2+vertPadding, viewSize/ -2-vertPadding, -100, 100);
+        camera = new THREE.OrthographicCamera(-aspectRatio * viewSize / 2 - horizPadding, aspectRatio * viewSize / 1.8, viewSize / 2 + vertPadding, viewSize / -2 - vertPadding, -100, 100);
+		camera.position.x = myWidth/2-horizAdjust4center;
+		camera.position.y = myHeight/2-dataPadding/2+vertAdjust4center;
+		camera.position.z = 1;
+		// Initialize the scene that will hold our geometry
+		scene = new THREE.Scene();
+		// We must bind the data to geometry - the geometry itself cannot be visualized without being assigned a material
+		// (later in code), but it holds valuable data like the position of each data point
+		geometry = new THREE.Geometry();
+		// For each data point, create a vertex and a color
+		// For the intial data load we abritrarily set the data to sort to report date XY positions and
+		// we assign the color to be based off of the color key
+		for ( i = 0; i < datasetVictims.length; i ++ ) {
+			thisDataPt = datasetVictims[i];
+			var xyCoord = getXYCoordinates(thisDataPt.key, myWidth, myHeight);
+			var vertex = new THREE.Vector3();
+			vertex.startPosition = new THREE.Vector3(xyCoord[0], xyCoord[1], 0);
+			xyCoord = getXYCoordinates(thisDataPt.uniqueRank_event_date, myWidth, myHeight);
+			vertex.endPosition = new THREE.Vector3(xyCoord[0], xyCoord[1], 0);
+			vertex.direction = vertex.startPosition.clone().sub(vertex.endPosition);
+			vertex.copy(vertex.startPosition);
+			geometry.vertices.push( vertex );
+			colors[i] = colorType(thisDataPt);
+		}
+		//Set our current color
+		currentColor = 'type';
+		// Assign our desired color to each piece of geometry
+		geometry.colors = colors;
+		// For each datapoint we asign a point material with a rectangle (pixel) size and our desired color
+		material = new THREE.PointsMaterial({
+			size: rectSize,
+			sizeAttenuation: false,
+			vertexColors: THREE.VertexColors,
+		});
+		// We now bind the geometry to the material to create a point that can be visualized, and then add those points to the scene
+		particles = new THREE.Points(geometry, material);
+		scene.add(particles);
+		// Create a mesh sphere that we place over the datapoint that the users mouse is hovering on
+		var sphereGeometry = new THREE.SphereGeometry(1, 32, 32);
+		var sphereMaterial = new THREE.MeshBasicMaterial( { color: 0xffffff, shading: THREE.FlatShading } );
+		sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
+		// bind the geometry to the material and create a mesh
+		scene.add(sphere);
+		// add this mesh to the scene
+		// In order to handle mouseover events we create a raycaster and a threshold
+		// from the camera's POV, whenever the mouse comes within our threshold of a given location
+		// we will want to get this mouse over position and the associated point's data to display to the suer
+		raycaster = new THREE.Raycaster();
+		raycaster.params.Points.threshold = threshold;
+		// To actually render the scene we execute the following
+		renderer = new THREE.WebGLRenderer({antialias: true});
+		renderer.setPixelRatio( window.devicePixelRatio );
+		renderer.setSize(myWidth, myHeight);
+		// renderer.setSize(1439, 799)
+		container.appendChild( renderer.domElement );
+		// Displays our framerate in the ULH corner
+		// Event listeners that listen for when the mouse is moved or when the window is resized
+		window.addEventListener( 'resize', onWindowResize, false);
+		document.addEventListener( 'mousemove', onDocumentMouseMove, false );
+		// document.addEventListener( 'mousedown', onDocumentMouseDown);
+		// For user friendliness, we identify how we are sorting and coloring to begin by showing the appropriate legend and color
+		updateUiSortEventDate();
+		updateUiColorType();
+		first = true
+        //updateFact(); (What do we want to start with??)
+	}
+
+	// #############################################################################
+	// ######################## THREE JS DOCUMENT EVENTS ###########################
+	// #############################################################################
+
+	function onWindowResize( event ) {
+		//Variables to update whenever the browser window is resized
+		windowHalfX = window.innerWidth / 2;
+		windowHalfY = window.innerHeight / 2;
+		camera.aspect = window.innerWidth / window.innerHeight;
+		aspectRatio = window.innerWidth / window.innerHeight;
+		camera.updateProjectionMatrix();
+		// myHeight = viewSize;
+		myWidth = viewSize*aspectRatio;
+		// renderer.setSize( window.innerWidth, window.innerHeight );
+	}
+	function onDocumentMouseMove( event ) {
+		//Update our mouse x and y position whenever the mouse moves
+		event.preventDefault();
+		mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+		mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
+	}
+
+
+	// #############################################################################
+	// ############################ COLOR FUNCTIONS ###############################
+	// #############################################################################
+
+	// Rules to color each parameter given a datapoint
+	function colorType (_thisDataPt) {
+		//HEX COLORS Processing consistent
+		var _color1 = new THREE.Color("#7c0002");
+		var _color2 = new THREE.Color("#873466");
+		var _color3 = new THREE.Color("#ff9b42");
+		var _color4 = new THREE.Color("#7e7b07");
+		var _color5 = new THREE.Color("#7fb153");
+        var _color6 = new THREE.Color("#295579");
+		var _color7 = new THREE.Color("#3f515b");
+
+
+		if(_thisDataPt.typeOfExploitConcatenated == 'Forced labour') {
+			return _color1;
+		} else if (_thisDataPt.typeOfExploitConcatenated == 'Sexual exploitation') {
+			return _color2;
+		} else if (_thisDataPt.typeOfExploitConcatenated == 'Sexual and labour exploitation') {
+			return _color3;
+		} else if (_thisDataPt.typeOfExploitConcatenated == 'Slavery and similar practices') {
+			return _color4;
+		} else if (_thisDataPt.typeOfExploitConcatenated == 'Forced marriage') {
+			return _color5;
+		} else if (_thisDataPt.typeOfExploitConcatenated == 'Other') {
+			return _color6;
+		} else {
+			return _color7;
+		}
+	}
+
+	function colorAge (_thisDataPt) {
+		//Hex Colors Processing Consistent
+		var _color1 = new THREE.Color("#8c1000");
+		var _color2 = new THREE.Color("#994d85");
+		var _color3 = new THREE.Color("#62306e");
+		var _color4 = new THREE.Color("#2d557c");
+		var _color5 = new THREE.Color("#007450");
+		var _color6 = new THREE.Color("#709a53");
+		var _color7 = new THREE.Color("#b3b232");
+		var _color8 = new THREE.Color("#ad6530");
+		var _color9 = new THREE.Color("#864124");
+		var _color10 = new THREE.Color("#4d616d");
+
+		if(_thisDataPt.ageBroad == '0--8') {
+			return _color1;
+		}
+		else if(_thisDataPt.ageBroad == '9--17') {		
+			return _color2;
+		}
+		else if(_thisDataPt.ageBroad == '18--20') {
+			return _color3;
+		}
+		else if(_thisDataPt.ageBroad == '21--23') {
+			return _color4;
+		}
+		else if(_thisDataPt.ageBroad == '24--26') {
+			return _color5;
+		}
+		else if(_thisDataPt.ageBroad == '27--29') {
+			return _color6;
+		}
+		else if(_thisDataPt.ageBroad == '30--38') {
+			return _color7;
+		}
+		else if(_thisDataPt.ageBroad == '39--47') {
+			return _color8;
+		}
+		else if(_thisDataPt.ageBroad == '48+') {
+			return _color9;
+		}
+		else {
+			return _color10;
+		}
+	}
+
+	function colorGender (_thisDataPt) {
+		//Hex Colors Processing Consistent
+		var _color1 = new THREE.Color('#2f648d');
+		var _color2 = new THREE.Color('#8a2504');
+		var _color4 = new THREE.Color('#677580');
+
+		if(_thisDataPt.gender == "0") {
+			return _color1;
+		}
+		else if(_thisDataPt.gender == "1") {
+			return _color2;
+		}
+		else {
+			return _color4;
+		}
+	}
+
+	function colorCitizenship (_thisDataPt) {
+		//Hex Colors Processing Consistent
+		var _color1 = new THREE.Color('#d33832');
+		var _color2 = new THREE.Color('#dc4a3e');
+		var _color3 = new THREE.Color('#e27156');
+		var _color4 = new THREE.Color('#eb6137');
+		var _color5 = new THREE.Color('#ed3b22');
+		var _color6 = new THREE.Color('#f05040');
+		var _color7 = new THREE.Color('#d3912d');
+		var _color8 = new THREE.Color('#f25326');
+		var _color9 = new THREE.Color('#c43d3e');
+		var _color10 = new THREE.Color('#b54f05');
+		var _color11 = new THREE.Color('#734416');
+		var _color12 = new THREE.Color('#a8051e');
+		var _color13 = new THREE.Color('#992c05');
+		var _color14 = new THREE.Color('#721302');
+
+		var _color15 = new THREE.Color('#eeeb5b');
+		var _color16 = new THREE.Color('#82ab56');
+		var _color17 = new THREE.Color('#6ab561');
+		var _color18 = new THREE.Color('#3b886c');
+		var _color19 = new THREE.Color('#dbff73');
+		var _color20 = new THREE.Color('#89b083');
+		var _color21 = new THREE.Color('#9ee27b');
+		var _color22 = new THREE.Color('#267053');
+		var _color23 = new THREE.Color('#63d762');
+		var _color24 = new THREE.Color('#859c3e');
+		var _color25 = new THREE.Color('#64bfa4');
+		var _color26 = new THREE.Color('#4e692e');
+		var _color27 = new THREE.Color('#6e9548');
+		var _color28 = new THREE.Color('#527c34');
+		var _color29 = new THREE.Color('#89a242');
+		var _color30 = new THREE.Color('#e1ff97');
+		var _color31 = new THREE.Color('#96d6b7');
+		var _color32 = new THREE.Color('#8ca973');
+		var _color33 = new THREE.Color('#77ff8a');
+
+		var _color34 = new THREE.Color('#52ceff');
+		var _color35 = new THREE.Color('#2e6c94');
+		var _color36 = new THREE.Color('#182aa8');
+		var _color37 = new THREE.Color('#3fcad8');
+		var _color38 = new THREE.Color('#14356a');
+		var _color39 = new THREE.Color('#6172a8');
+
+		var _color40 = new THREE.Color('#5f409b');
+		var _color41 = new THREE.Color('#8e3596');
+		var _color42 = new THREE.Color('#5c2679');
+		var _color43 = new THREE.Color('#28164e');
+
+		var _color44 = new THREE.Color('#ad5a9a');
+		var _color45 = new THREE.Color('#d53965');
+
+		var _color46 = new THREE.Color('#677580');
+
+		if (_thisDataPt.citizenship_country == 'Burkina Faso') {
+			return _color1;
+		}
+		else if(_thisDataPt.citizenship_country == 'Congo') {
+			return _color2;
+		}
+		else if(_thisDataPt.citizenship_country == 'Cote d\'Ivoire') {
+			return _color3;
+		} 
+		else if (_thisDataPt.citizenship_country == 'Eritrea') {
+			return _color4;
+		}
+		else if(_thisDataPt.citizenship_country == 'Ghana') {
+			return _color5;
+		}
+		else if(_thisDataPt.citizenship_country == 'Guinea') {
+			return _color6;
+		}
+		else if (_thisDataPt.citizenship_country == 'Guinea-Bissau') {
+			return _color7;
+		}
+		else if(_thisDataPt.citizenship_country == 'Madagascar') {
+			return _color8;
+		}
+		else if(_thisDataPt.citizenship_country == 'Mali') {
+			return _color9;
+		} 
+		else if(_thisDataPt.citizenship_country == 'Niger') {
+			return _color10;
+		}
+		else if (_thisDataPt.citizenship_country == 'Nigeria') {
+			return _color11;
+		}
+		else if(_thisDataPt.citizenship_country == 'Senegal') {
+			return _color12;
+		}
+		else if(_thisDataPt.citizenship_country == 'Sierra Leone') {
+			return _color13;
+		} 
+		else if (_thisDataPt.citizenship_country == 'Uganda') {
+			return _color14;
+		}
+
+
+		else if(_thisDataPt.citizenship_country == 'Afghanistan') {
+			return _color15;
+		}
+		else if(_thisDataPt.citizenship_country == 'Bangladesh') {
+			return _color16;
+		}
+		else if (_thisDataPt.citizenship_country == 'Cambodia') {
+			return _color17;
+		}
+		else if(_thisDataPt.citizenship_country == 'China') {
+			return _color18;
+		}
+		else if(_thisDataPt.citizenship_country == 'India') {
+			return _color19;
+		} 
+		else if(_thisDataPt.citizenship_country == 'Indonesia') {
+			return _color20;
+		}
+		else if (_thisDataPt.citizenship_country == 'Kazakhstan') {
+			return _color21;
+		}
+		else if(_thisDataPt.citizenship_country == 'Korea') {
+			return _color22;
+		}
+		else if(_thisDataPt.citizenship_country == 'Kyrgyzstan') {
+			return _color23;
+		} 
+		else if (_thisDataPt.citizenship_country == 'Laos') {
+			return _color24;
+		}
+		else if(_thisDataPt.citizenship_country == 'Myanmar') {
+			return _color25;
+		}
+		else if(_thisDataPt.citizenship_country == 'Nepal') {
+			return _color26;
+		}
+		else if (_thisDataPt.citizenship_country == 'Philippines') {
+			return _color27;
+		}
+		else if(_thisDataPt.citizenship_country == 'Sri Lanka') {
+			return _color28;
+		}
+		else if(_thisDataPt.citizenship_country == 'Thailand') {
+			return _color29;
+		} 
+		else if(_thisDataPt.citizenship_country == 'Turkmenistan') {
+			return _color30;
+		}
+		else if (_thisDataPt.citizenship_country == 'Uzbekistan') {
+			return _color31;
+		}
+		else if(_thisDataPt.citizenship_country == 'Viet Nam') {
+			return _color32;
+		}
+		else if(_thisDataPt.citizenship_country == 'Tajikistan') {
+			return _color33;
+		}
+
+
+		else if (_thisDataPt.citizenship_country == 'Albania') {
+			return _color34;
+		}
+		else if(_thisDataPt.citizenship_country == 'Belarus') {
+			return _color35;
+		}
+		else if(_thisDataPt.citizenship_country == 'Bulgaria') {
+			return _color36;
+		}
+		else if (_thisDataPt.citizenship_country == 'Moldova') {
+			return _color37;
+		}
+		else if(_thisDataPt.citizenship_country == 'Romania') {
+			return _color38;
+		}
+		else if(_thisDataPt.citizenship_country == 'Ukraine') {
+			return _color39;
+		}
+
+
+		else if(_thisDataPt.citizenship_country == 'El Salvador') {
+			return _color40;
+		}
+		else if (_thisDataPt.citizenship_country == 'Haiti') {
+			return _color41;
+		}
+		else if(_thisDataPt.citizenship_country == 'Mexico') {
+			return _color42;
+		}
+		else if(_thisDataPt.citizenship_country == 'USA') {
+			return _color43;
+		}
+
+
+		else if (_thisDataPt.citizenship_country == 'Bolivia') {
+			return _color44;
+		}
+		else if(_thisDataPt.citizenship_country == 'Colombia') {
+			return _color45;
+		}
+		else if(_thisDataPt.citizenship_country == '.'){
+			return _color46;
+		}
+	}
+
+	function colorExploit(_thisDataPt) {
+		// AFRICA
+		var _color1 = new THREE.Color('#d33832');
+		var _color2 = new THREE.Color('#e27156');
+		var _color3 = new THREE.Color('#d3912d');
+		var _color4 = new THREE.Color('#a8051e');
+		var _color5 = new THREE.Color('#b54f05');
+		var _color6 = new THREE.Color('#734416');
+		var _color7 = new THREE.Color('#992c05');
+		var _color8 = new THREE.Color('#721302');
+		//ASIA
+		var _color9 = new THREE.Color('#d8d559');
+		var _color10 = new THREE.Color('#96c05c');
+		var _color11 = new THREE.Color('#66ab5b');
+		var _color12 = new THREE.Color('#3b886c');
+		var _color13 = new THREE.Color('#c3e568');
+		var _color14 = new THREE.Color('#a9d750');
+		var _color15 = new THREE.Color('#93d171');
+		var _color16 = new THREE.Color('#65b949');
+		var _color17 = new THREE.Color('#56ad55');
+		var _color18 = new THREE.Color('#a9c450');
+		var _color19 = new THREE.Color('#8bb744');
+		var _color20 = new THREE.Color('#88cd82');
+		var _color21 = new THREE.Color('#62bb7f');
+		var _color22 = new THREE.Color('#63933a');
+		var _color23 = new THREE.Color('#91aa43');
+		var _color24 = new THREE.Color('#cae889');
+		var _color25 = new THREE.Color('#96d6b7');
+		var _color26 = new THREE.Color('#bde39d');
+		var _color27 = new THREE.Color('#45924f');
+		var _color28 = new THREE.Color('#b2e0a7');
+		var _color29 = new THREE.Color('#2ea273');
+		var _color30 = new THREE.Color('#5cb59a');
+		var _color31 = new THREE.Color('#5d7a33');
+		var _color32 = new THREE.Color('#b8c973');
+		var _color33 = new THREE.Color('#267053');
+		var _color34 = new THREE.Color('#a1aa78');
+		var _color35 = new THREE.Color('#2a572e');
+		//EUROPE
+
+		var _color36 = new THREE.Color('#52ceff');
+		var _color37 = new THREE.Color('#2e6c94');
+		var _color38 = new THREE.Color('#182aa8');
+		var _color39 = new THREE.Color('#3fcad8');
+		var _color40 = new THREE.Color('#14356a');
+		var _color41 = new THREE.Color('#6172a8');
+		var _color42 = new THREE.Color('#5bfffd');
+		var _color43 = new THREE.Color('#498b94');
+		var _color44 = new THREE.Color('#5d5da8');
+		var _color45 = new THREE.Color('#0f6fd8');
+		var _color46 = new THREE.Color('#05276a');
+		var _color47 = new THREE.Color('#5ebac8');
+		var _color48 = new THREE.Color('#52ceff');
+		var _color49 = new THREE.Color('#435a94');
+
+		var _color50 = new THREE.Color('#5f409b');
+		var _color51 = new THREE.Color('#8e3596');
+		var _color52 = new THREE.Color('#5c2679');
+		var _color53 = new THREE.Color('#28164e');
+
+		var _color54 = new THREE.Color('#ad5a9a');
+		var _color55 = new THREE.Color('#d53965');
+
+		var _color56 = new THREE.Color('#677580');
+
+		if (_thisDataPt.exploit_country == 'Egypt') {
+			return _color1;
+		}
+		else if(_thisDataPt.exploit_country == 'Ghana') {
+			return _color2;
+		}
+		else if(_thisDataPt.exploit_country == 'Madagascar') {
+			return _color3;
+		} 
+		else if (_thisDataPt.exploit_country == 'Mauritius') {
+			return _color4;
+		}
+		else if(_thisDataPt.exploit_country == 'Senegal') {
+			return _color5;
+		}
+		else if(_thisDataPt.exploit_country == 'Sierra Leone') {
+			return _color6;
+		}
+		else if (_thisDataPt.exploit_country == 'South Africa') {
+			return _color7;
+		}
+		else if(_thisDataPt.exploit_country == 'Uganda') {
+			return _color8;
+		}
+
+		else if(_thisDataPt.exploit_country == 'Afghanistan') {
+			return _color9;
+		} 
+		else if(_thisDataPt.exploit_country == 'Bahrain') {
+			return _color10;
+		}
+		else if (_thisDataPt.exploit_country == 'Cambodia') {
+			return _color11;
+		}
+		else if(_thisDataPt.exploit_country == 'China') {
+			return _color12;
+		}
+		else if(_thisDataPt.exploit_country == 'Cyprus') {
+			return _color13;
+		} 
+		else if (_thisDataPt.exploit_country == 'Hong Kong') {
+			return _color14;
+		}
+		else if(_thisDataPt.exploit_country == 'Indonesia') {
+			return _color15;
+		}
+		else if(_thisDataPt.exploit_country == 'Japan') {
+			return _color16;
+		}
+		else if (_thisDataPt.exploit_country == 'Jordan') {
+			return _color17;
+		}
+		else if(_thisDataPt.exploit_country == 'Kazakhstan') {
+			return _color18;
+		}
+		else if(_thisDataPt.exploit_country == 'Kuwait') {
+			return _color19;
+		} 
+		else if(_thisDataPt.exploit_country == 'Lebanon') {
+			return _color20;
+		}
+		else if (_thisDataPt.exploit_country == 'Malaysia') {
+			return _color21;
+		}
+		else if(_thisDataPt.exploit_country == 'Oman') {
+			return _color22;
+		}
+		else if(_thisDataPt.exploit_country == 'Philippines') {
+			return _color23;
+		} 
+		else if (_thisDataPt.exploit_country == 'Qatar') {
+			return _color24;
+		}
+		else if(_thisDataPt.exploit_country == 'Saudi Arabia') {
+			return _color25;
+		}
+		else if(_thisDataPt.exploit_country == 'Singapore') {
+			return _color26;
+		}
+		else if (_thisDataPt.exploit_country == 'Syria') {
+			return _color27;
+		}
+		else if(_thisDataPt.exploit_country == 'Taiwan') {
+			return _color28;
+		}
+		else if(_thisDataPt.exploit_country == 'Tajikistan') {
+			return _color29;
+		} 
+		else if(_thisDataPt.exploit_country == 'Thailand') {
+			return _color30;
+		}
+		else if (_thisDataPt.exploit_country == 'Turkey') {
+			return _color31;
+		}
+		else if(_thisDataPt.exploit_country == 'Turkmenistan') {
+			return _color32;
+		}
+		else if(_thisDataPt.exploit_country == 'UAE') {
+			return _color33;
+		} 
+		else if (_thisDataPt.exploit_country == 'Uzbekistan') {
+			return _color34;
+		}
+		else if(_thisDataPt.exploit_country == 'Vietnam') {
+			return _color35;
+		}
+		else if(_thisDataPt.exploit_country == 'Albania') {
+			return _color36;
+		}
+		else if (_thisDataPt.exploit_country == 'Austria') {
+			return _color37;
+		}
+		else if(_thisDataPt.exploit_country == 'Belarus') {
+			return _color38;
+		}
+		else if(_thisDataPt.exploit_country == 'Bulgaria') {
+			return _color39;
+		} 
+		else if(_thisDataPt.exploit_country == 'Czech Republic') {
+			return _color40;
+		}
+		else if (_thisDataPt.exploit_country == 'Denmark') {
+			return _color41;
+		}
+		else if(_thisDataPt.exploit_country == 'Italy') {
+			return _color42;
+		}
+		else if(_thisDataPt.exploit_country == 'Macedonia') {
+			return _color43;
+		} 
+		else if (_thisDataPt.exploit_country == 'Moldova') {
+			return _color44;
+		}
+		else if(_thisDataPt.exploit_country == 'Poland') {
+			return _color45;
+		}
+		else if(_thisDataPt.exploit_country == 'Romania') {
+			return _color46;
+		}
+		else if (_thisDataPt.exploit_country == 'Russia') {
+			return _color47;
+		}
+		else if(_thisDataPt.exploit_country == 'Ukraine') {
+			return _color48;
+		} 
+		else if(_thisDataPt.exploit_country == 'Bosnia and Herzegovina') {
+			return _color49;
+		}
+		else if (_thisDataPt.exploit_country == 'Haiti') {
+			return _color50;
+		}
+		else if(_thisDataPt.exploit_country == 'Mexico') {
+			return _color51;
+		}
+		else if(_thisDataPt.exploit_country == 'Trinidad and Tobago') {
+			return _color52;
+		} 
+		else if (_thisDataPt.exploit_country == 'USA') {
+			return _color53;
+		}
+		else if(_thisDataPt.exploit_country == 'Argentina') {
+			return _color54;
+		}
+		else if(_thisDataPt.exploit_country == 'Ecuador') {
+			return _color55;
+		}
+		else {
+			return _color56;
+		}
+	}
+
+	function colorEventDate (_thisDataPt) {
+		/*var gradientLength = datasetVictims.length;;
+		var thisColor = parseInt(map_range(_thisDataPt.uniqueRank_event_date, 25, datasetVictims.length, 25, 255));
+		thisColor = "rgb(" + thisColor + "," + thisColor +"," + thisColor + ")";
+		return new THREE.Color(thisColor);*/
+
+		var _color1 = new THREE.Color('#d3161a');
+		var _color2 = new THREE.Color('#ba5d1c');
+		var _color3 = new THREE.Color('#db9d42');
+		var _color4 = new THREE.Color('#fff451');
+		var _color5 = new THREE.Color('#b2d94d');
+		var _color6 = new THREE.Color('#759c4e');
+		var _color7 = new THREE.Color('#3b6e37');
+		var _color8 = new THREE.Color('#3b886c');
+		//ASIA
+		var _color9 = new THREE.Color('#719995');
+		var _color10 = new THREE.Color('#43a5cb');
+		var _color11 = new THREE.Color('#2e6c94');
+		var _color12 = new THREE.Color('#4053a2');
+		var _color13 = new THREE.Color('#5f409b');
+		var _color14 = new THREE.Color('#712d79');
+		var _color15 = new THREE.Color('#9d8199');
+		var _color16 = new THREE.Color('#717276');
+		var _color17 = new THREE.Color('#dfe1de');
+
+		if (_thisDataPt.yearOfRegistration == '2002') {
+			return _color1;
+		} else if (_thisDataPt.yearOfRegistration == '2003') {
+			return _color2;
+		} else if (_thisDataPt.yearOfRegistration == '2004') {
+			return _color3;
+		} else if (_thisDataPt.yearOfRegistration == '2005') {
+			return _color4;
+		} else if (_thisDataPt.yearOfRegistration == '2006') {
+			return _color5;
+		} else if (_thisDataPt.yearOfRegistration == '2007') {
+			return _color6;
+		} else if (_thisDataPt.yearOfRegistration == '2008') {
+			return _color7;
+		} else if (_thisDataPt.yearOfRegistration == '2009') {
+			return _color8;
+		} else if (_thisDataPt.yearOfRegistration == '2010') {
+			return _color9;
+		} else if (_thisDataPt.yearOfRegistration == '2011') {
+			return _color10;
+		} else if (_thisDataPt.yearOfRegistration == '2012') {
+			return _color11;
+		} else if (_thisDataPt.yearOfRegistration == '2013') {
+			return _color12;
+		} else if (_thisDataPt.yearOfRegistration == '2014') {
+			return _color13;
+		} else if (_thisDataPt.yearOfRegistration == '2015') {
+			return _color14;
+		} else if (_thisDataPt.yearOfRegistration == '2016') {
+			return _color15;
+		} else if (_thisDataPt.yearOfRegistration == '2017') {
+			return _color16;
+		} else if (_thisDataPt.yearOfRegistration == '2018') {
+			return _color17;
+		}
+	}
+
+	function getTooltipText (_thisDataPt) {
+		//Parse Text For ToolTip Mousover
+		var textList = ["Reg Year: ", "Exploitation Type: ", "Age Group: ", "Gender: ", "Citizenship: ", "Country of Exploitation: "];
+		
+		
+		textList[0] = textList[0] + _thisDataPt.yearOfRegistration;
+		
+		if(_thisDataPt.typeOfExploitConcatenated == ".") {
+			var _typeText = "n/a";
+		}
+		else {
+			var _typeText = _thisDataPt.typeOfExploitConcatenated;
+		}
+		
+		textList[1] = textList[1] + _typeText;
+
+		if(_thisDataPt.ageBroad == '.') {
+			var _ageText = "n/a";
+		}
+		else {
+			var _ageText = _thisDataPt.ageBroad;
+		}
+		
+		textList[2] = textList[2] + _ageText;
+
+		if (_thisDataPt.gender == 1) {
+			var _genderText = "Female";
+		}
+		else if (_thisDataPt.gender == 0) {
+			var _genderText = "Male";
+		} else {
+			var _genderText = 'n/a'
+		}
+		
+		textList[3] = textList[3] + _genderText;
+
+		if (_thisDataPt.citizenship == '.') {
+			var _citizenshipText = "n/a";
+		}
+		else {
+			var _citizenshipText = _thisDataPt.citizenship_country;
+		}
+		
+		textList[4] = textList[4] + _citizenshipText;
+
+		if (_thisDataPt.CountryOfExploitation == '.') {
+			var _exploitText = "n/a";
+		}
+		else {
+			var _exploitText = _thisDataPt.exploit_country;
+		}
+		
+		textList[5] = textList[5] + _exploitText;
+
+		return textList;
+	}
+
+	// #############################################################################
+	// ##################### THREE JS ANIMATION  AND RENDER ########################
+	// #############################################################################
+
+	function resetAnimation() {
+		//Function that we call to reset the animation
+		// turn off the raycaster while the viz is transitioning to reduce burden on browser
+		raycastOn = false;
+
+		// Reset our countdown timer - this timer is what enables the particles to slide along their
+		// initial position to their final position
+		currentTime = duration;
+	}
+	//Time delta to track time passed
+	var delta;
+	function animate() {
+		//Function attempts to run 60 FPS to run our Viz smoothly
+		delta = clock.getDelta();
+		currentTime -= delta;
+		if(currentTime < 0) {
+			// currentTime is less than 0 so any user defined sort has finished
+			// reset our currenTime to 0 since it is already negative
+			currentTime = 0;
+			// Since the particles are not moving we want to calculate raytracing and mouseover
+			raycastOn = true;
+		}
+		// Three JS request the animation frame
+		requestAnimationFrame( animate );
+		// Moves the particles from their initial positin to their final position
+		// Note that once the particles arrive in the user defined sort positoins, after a sort is complete
+		// (inital position) = (final position) and the length of the vector is 0 so the particles do not move
+		geometry.vertices.forEach(function(vertex){
+			vertex.addVectors(vertex.endPosition,vertex.direction.clone().multiplyScalar(currentTime / duration));
+		});
+		// Tells Three JS that we should update the geometries verticies (position on screen) and their color
+		// for every frame we display
+		geometry.verticesNeedUpdate = true;
+		geometry.colorsNeedUpdate = true;
+		// Tell Three JS to render the scene and update our stats
+		render();
+	}
+	function render() {
+		//Find where the event is in world coordinates
+		worldX = parseInt(map_range(mouse.x, -1, 1, 0, windowHalfX*2));
+		worldY = parseInt(map_range(mouse.y, -1, 1, windowHalfY*2, 0));
+		//Calculate raycaster intersections (mouseover events) when we are not actively moving particles on screen
+		if(!boolMouseOnDropDown){
+			if (raycastOn) {
+				// Tell three JS where we are drawing our ray from and based on what point
+
+				// var raycastMouseX = map_range(worldX, 0, 1427, -0.9825, 0.7775000000000001);
+				var raycastMouseX = map_range(worldX, 0 ,originalWidth, -1, 1);
+				var raycastMouseY = map_range(worldY, 0, myHeight, 1, -1);
+				var raycastMouse = new THREE.Vector2(raycastMouseX, raycastMouseY);
+
+				raycaster.setFromCamera( raycastMouse, camera );
+				// Calculate what paricles if any the raycaster intersects
+				var intersections = raycaster.intersectObject(particles);
+				intersection = (intersections.length) > 0 ? intersections[0] : null;
+				if(intersection != null) {
+					// In the event that we DO intersect a particle, intersection is not null and we proceed
+					// Find intersection point so we know where to display our div
+					var intersectPosition = intersection.point;
+					var divXLoc = worldX;
+					if (divXLoc > windowHalfX) {
+						divXLoc = divXLoc - 250;
+					} else {
+						divXLoc = divXLoc + 50;
+					}
+					var divYLoc = worldY;
+					if (divYLoc > windowHalfY) {
+						divYLoc = divYLoc - 100;
+					}
+					//Move our sphere to the intersected poisition
+					sphere.position.copy(intersectPosition);
+					sphere.visible = true;
+					sphere.scale.set(2, 2, 2);
+					//Get this data points parameters as text to display in the tool tip
+					tooltipTextList = getTooltipText(datasetVictims[intersection.index])
+					// Tell d3 where to display our tooltip
+					d3.select("#tooltip")
+					.transition()
+					.duration(100)
+					.style("left", divXLoc + "px")
+					.style("top", divYLoc + "px");
+					d3.select("#dateText")
+					.text(tooltipTextList[0]);
+					d3.select("#tooltip")
+					.select("#typeText")
+					.text(tooltipTextList[1]);
+					d3.select("#tooltip")
+					.select("#ageText")
+					.text(tooltipTextList[2]);
+					d3.select("#tooltip")
+					.select("#genderText")
+					.text(tooltipTextList[3]);
+					d3.select("#tooltip")
+					.select("#citizenshipText")
+					.text(tooltipTextList[4]);
+					d3.select("#tooltip")
+					.select("#exploitText")
+					.text(tooltipTextList[5]);
+					//Show the tooltip
+					d3.select("#tooltip").classed("hidden", false);
+				} else {
+					//Hide our sphere cursor
+					sphere.visible = false;
+					//Hide the tooltip
+					d3.select("#tooltip").classed("hidden", true);
+				}
+			} else {
+				//Hide the tooltip
+				d3.select("#tooltip").classed("hidden", true);
+			}
+		}
+		// Three JS render this scene with this camera
+		renderer.render( scene, camera );
+	}
+	//Update UI Elements
+	function updateUiSortType() {
+		// Update a/o buttons
+		d3.select("#sortKey")
+		.style("background-color", buttonColorOff);
+		d3.select("#sortAge")
+		.style("background-color", buttonColorOff);
+		d3.select("#sortGender")
+		.style("background-color", buttonColorOff);
+		d3.select("#sortEventDate")
+		.style("background-color", buttonColorOff);
+		d3.select("#sortCitizenship")
+		.style("background-color", buttonColorOff);
+		d3.select("#sortExploit")
+		.style("background-color", buttonColorOff);
+
+		//Update this button
+		d3.select("#sortType")
+		.style("background-color", buttonColorOn);
+
+		d3.selectAll(".timeline").classed("hidden", true);
+		d3.selectAll(".timelineTick").classed("hidden", true);
+		//Hide the timelines if any show
+		d3.selectAll(".timeline#type").classed("hidden", false);
+		//Hide the ticks if any show
+		d3.selectAll(".timelineTick#type").classed("hidden", false);
+	}
+	function updateUiSortAge() {
+		// Update a/o buttons
+		d3.select("#sortKey")
+		.style("background-color", buttonColorOff);
+		d3.select("#sortType")
+		.style("background-color", buttonColorOff);
+		d3.select("#sortGender")
+		.style("background-color", buttonColorOff);
+		d3.select("#sortEventDate")
+		.style("background-color", buttonColorOff);
+		d3.select("#sortCitizenship")
+		.style("background-color", buttonColorOff);
+		d3.select("#sortExploit")
+		.style("background-color", buttonColorOff);
+
+		//Update this button
+		d3.select("#sortAge")
+		.style("background-color", buttonColorOn);
+		//Hide the timelines if any show
+		d3.selectAll(".timeline").classed("hidden", true);
+		d3.selectAll(".timelineTick").classed("hidden", true);
+
+		d3.selectAll(".timeline#age").classed("hidden", false);
+		d3.selectAll(".timelineTick#age").classed("hidden", false);
+	}
+	function updateUiSortGender() {
+		// Update a/o buttons
+		d3.select("#sortKey")
+		.style("background-color", buttonColorOff);
+		d3.select("#sortType")
+		.style("background-color", buttonColorOff);
+		d3.select("#sortAge")
+		.style("background-color", buttonColorOff);
+		d3.select("#sortEventDate")
+		.style("background-color", buttonColorOff);
+		d3.select("#sortCitizenship")
+		.style("background-color", buttonColorOff);
+		d3.select("#sortExploit")
+		.style("background-color", buttonColorOff);
+
+		//Update this button
+		d3.select("#sortGender")
+		.style("background-color", buttonColorOn);
+
+		d3.selectAll(".timeline").classed("hidden", true);
+		d3.selectAll(".timelineTick").classed("hidden", true);
+
+		d3.selectAll(".timeline#gender").classed("hidden", false);
+		d3.selectAll(".timelineTick#gender").classed("hidden", false);
+	}
+	function updateUiSortCitizenship() {
+		// Update a/o buttons
+		d3.select("#sortKey")
+		.style("background-color", buttonColorOff);
+		d3.select("#sortType")
+		.style("background-color", buttonColorOff);
+		d3.select("#sortAge")
+		.style("background-color", buttonColorOff);
+		d3.select("#sortGender")
+		.style("background-color", buttonColorOff);
+		d3.select("#sortEventDate")
+		.style("background-color", buttonColorOff);
+		d3.select("#sortExploit")
+		.style("background-color", buttonColorOff);
+
+		//Update this button
+		d3.select("#sortCitizenship")
+		.style("background-color", buttonColorOn);
+
+		d3.selectAll(".timeline").classed("hidden", true);
+		d3.selectAll(".timelineTick").classed("hidden", true);
+
+		d3.selectAll(".timeline#citizen").classed("hidden", false);
+		d3.selectAll(".timelineTick#citizen").classed("hidden", false);
+	}
+	function updateUiSortExploit() {
+		// Update a/o buttons
+		d3.select("#sortKey")
+		.style("background-color", buttonColorOff);
+		d3.select("#sortType")
+		.style("background-color", buttonColorOff);
+		d3.select("#sortAge")
+		.style("background-color", buttonColorOff);
+		d3.select("#sortGender")
+		.style("background-color", buttonColorOff);
+		d3.select("#sortEventDate")
+		.style("background-color", buttonColorOff);
+		d3.select("#sortCitizenship")
+		.style("background-color", buttonColorOff);
+
+		//Update this button
+		d3.select("#sortExploit")
+		.style("background-color", buttonColorOn);
+
+		d3.selectAll(".timeline").classed("hidden", true);
+		d3.selectAll(".timelineTick").classed("hidden", true);
+
+		d3.selectAll(".timeline#exploit").classed("hidden", false);
+		d3.selectAll(".timelineTick#exploit").classed("hidden", false);
+	}
+	function updateUiSortEventDate() {
+		// Update a/o buttons
+		d3.select("#sortKey")
+		.style("background-color", buttonColorOff);
+		d3.select("#sortType")
+		.style("background-color", buttonColorOff);
+		d3.select("#sortAge")
+		.style("background-color", buttonColorOff);
+		d3.select("#sortGender")
+		.style("background-color", buttonColorOff);
+		d3.select("#sortCitizenship")
+		.style("background-color", buttonColorOff);
+		d3.select("#sortExploit")
+		.style("background-color", buttonColorOff);
+
+		//Update this button
+		d3.select("#sortEventDate")
+		.style("background-color", buttonColorOn);
+
+		d3.selectAll(".timeline").classed("hidden", true);
+		d3.selectAll(".timelineTick").classed("hidden", true);
+
+		d3.selectAll(".timeline#event").classed("hidden", false);
+		d3.selectAll(".timelineTick#event").classed("hidden", false);
+
+	}
+
+	function updateUiColorType() {
+		//Update legend text
+		d3.select("#legend01Text")
+		.text("Forced labour"); 			
+		d3.select("#legend02Text")
+				.text("Sexual exploitation");
+		d3.select("#legend03Text")
+				.text("Forced labour & Sexual Exploitaition");
+		d3.select("#legend04Text")
+				.text("Slavery and similar practices");
+		d3.select("#legend05Text")
+				.text("Forced marriage");
+		d3.select("#legend06Text")
+		.text("Other");	//hecho = 6
+		d3.select("#legend07Text")
+		.text("n/a");
+		d3.select("#legend08Text")
+		.text("");
+		d3.select("#legend09Text")
+		.text("");
+		d3.select("#legend10Text")
+		.text("");
+		d3.select("#legend11Text")
+				.text("");
+		d3.select("#legend12Text")
+				.text("");
+		d3.select("#legend13Text")
+				.text("");
+		d3.select("#legend14Text")
+				.text("");
+		d3.select("#legend15Text")
+				.text("");
+		d3.select("#legend16Text")
+				.text("");
+		d3.select("#legend17Text")
+				.text("");
+
+		//Update legend rectangels
+		d3.select("#legendRect01")
+		.style("background-color", "#7c0002");
+		d3.select("#legendRect02")
+				.style("background-color", "#873466");
+		d3.select("#legendRect03")
+				.style("background-color", "#ff9b42");
+		d3.select("#legendRect04")
+				.style("background-color", "#7e7b07");
+		d3.select("#legendRect05")
+				.style("background-color", "#7fb153");
+		d3.select("#legendRect06")
+            .style("background-color", "#295579");
+		d3.select("#legendRect07")
+		.style("background-color", "#3f515b");
+		d3.select("#legendRect08")
+		.style("background-color", "#000000");
+		d3.select("#legendRect09")
+		.style("background-color", "#000000");
+		d3.select("#legendRect10")
+		.style("background-color", "#000000");
+		d3.select("#legendRect11")
+				.style("background-color", "rgba(0,0,0,0)");
+		d3.select("#legendRect12")
+				.style("background-color", "rgba(0,0,0,0)");
+		d3.select("#legendRect13")
+				.style("background-color", "rgba(0,0,0,0)");
+		d3.select("#legendRect14")
+				.style("background-color", "rgba(0,0,0,0)");
+		d3.select("#legendRect15")
+				.style("background-color", "rgba(0,0,0,0)");
+		d3.select("#legendRect16")
+				.style("background-color", "rgba(0,0,0,0)");
+		d3.select("#legendRect17")
+				.style("background-color", "#000000");
+
+
+		//Update a/o color buttons
+		d3.select("#colorAge")
+		.style("background-color", buttonColorOff);
+		d3.select("#colorGender")
+		.style("background-color", buttonColorOff);
+		d3.select("#sortCitizenship")
+		.style("background-color", buttonColorOff);
+		d3.select("#sortExploit")
+		.style("background-color", buttonColorOff);
+		d3.select("#colorEventDate")
+		.style("background-color", buttonColorOff);
+
+		//Update this color button
+		d3.select("#colorType")
+		.style("background-color", buttonColorOn);
+	}
+	function updateUiColorAge() {
+		//Update legend
+		d3.select("#legend01Text")
+		.text("0--8"); 			
+		d3.select("#legend02Text")
+		.text("9--17");	
+		d3.select("#legend03Text")
+		.text("18--20");				
+		d3.select("#legend04Text")
+		.text("21--23");					
+		d3.select("#legend05Text")
+		.text("24--26"); 			
+		d3.select("#legend06Text")
+		.text("27--29");	
+		d3.select("#legend07Text")
+		.text("30--38");			
+		d3.select("#legend08Text")
+		.text("39--47");		
+		d3.select("#legend09Text")
+		.text("48+");	
+		d3.select("#legend10Text")
+		.text("n/a");
+		d3.select("#legend11Text")
+				.text("");
+		d3.select("#legend12Text")
+				.text("");
+		d3.select("#legend13Text")
+				.text("");
+		d3.select("#legend14Text")
+				.text("");
+		d3.select("#legend15Text")
+				.text("");
+		d3.select("#legend16Text")
+				.text("");
+		d3.select("#legend17Text")
+				.text("");
+
+		//Update legend rectangels
+
+		d3.select("#legendRect01")
+		.style("background-color", "#8c1000");
+		d3.select("#legendRect02")
+		.style("background-color", "#994d85");
+		d3.select("#legendRect03")
+		.style("background-color", "#62306e");
+		d3.select("#legendRect04")
+		.style("background-color", "#2d557c");
+		d3.select("#legendRect05")
+		.style("background-color", "#007450");
+		d3.select("#legendRect06")
+		.style("background-color", "#709a53");
+		d3.select("#legendRect07")
+		.style("background-color", "#b3b232");
+		d3.select("#legendRect08")
+		.style("background-color", "#ad6530");
+		d3.select("#legendRect09")
+		.style("background-color", "#864124");
+		d3.select("#legendRect10")
+		.style("background-color", "#4d616d");
+		d3.select("#legendRect11")
+				.style("background-color", "#000000");
+		d3.select("#legendRect12")
+				.style("background-color", "#000000");
+		d3.select("#legendRect13")
+				.style("background-color", "#000000");
+		d3.select("#legendRect14")
+				.style("background-color", "#000000");
+		d3.select("#legendRect15")
+				.style("background-color", "#000000");
+		d3.select("#legendRect16")
+				.style("background-color", "#000000");
+		d3.select("#legendRect17")
+				.style("background-color", "#000000");
+
+
+		//Update a/o color buttons
+		d3.select("#colorType")
+		.style("background-color", buttonColorOff);
+		d3.select("#colorGender")
+		.style("background-color", buttonColorOff);
+		d3.select("#sortCitizenship")
+		.style("background-color", buttonColorOff);
+		d3.select("#sortExploit")
+		.style("background-color", buttonColorOff);
+		d3.select("#colorEventDate")
+		.style("background-color", buttonColorOff);
+
+		//Update this color button
+		d3.select("#colorAge")
+		.style("background-color", buttonColorOn);
+	}
+	function updateUiColorGender() {
+		//Update legend text
+		d3.select("#legend01Text")
+		.text("Female");
+		d3.select("#legend02Text")
+		.text("Male");
+		d3.select("#legend03Text")
+		.text("n/a");
+		d3.select("#legend04Text")
+		.text("");
+		d3.select("#legend05Text")
+		.text("");
+		d3.select("#legend06Text")
+		.text("");
+		d3.select("#legend07Text")
+		.text("");
+		d3.select("#legend08Text")
+		.text("");
+		d3.select("#legend09Text")
+		.text("");
+		d3.select("#legend10Text")
+		.text("");
+		d3.select("#legend11Text")
+				.text("");
+		d3.select("#legend12Text")
+				.text("");
+		d3.select("#legend13Text")
+				.text("");
+		d3.select("#legend14Text")
+				.text("");
+		d3.select("#legend15Text")
+				.text("");
+		d3.select("#legend16Text")
+				.text("");
+		d3.select("#legend17Text")
+				.text("");
+		//Update legend rectangels
+
+		d3.select("#legendRect01")
+		.style("background-color", "#2f648d");
+		d3.select("#legendRect02")
+		.style("background-color", "#8a2504");
+		d3.select("#legendRect03")
+		.style("background-color", "#677580");
+		d3.select("#legendRect04")
+		.style("background-color", "#000000");
+		d3.select("#legendRect05")
+		.style("background-color", "#000000");
+		d3.select("#legendRect06")
+		.style("background-color", "#000000");
+		d3.select("#legendRect07")
+		.style("background-color", "#000000");
+		d3.select("#legendRect08")
+		.style("background-color", "#000000");
+		d3.select("#legendRect09")
+		.style("background-color", "#000000");
+		d3.select("#legendRect10")
+		.style("background-color", "#000000");
+		d3.select("#legendRect11")
+				.style("background-color", "#000000");
+		d3.select("#legendRect12")
+				.style("background-color", "#000000");
+		d3.select("#legendRect13")
+				.style("background-color", "#000000");
+		d3.select("#legendRect14")
+				.style("background-color", "#000000");
+		d3.select("#legendRect15")
+				.style("background-color", "#000000");
+		d3.select("#legendRect16")
+				.style("background-color", "#000000");
+		d3.select("#legendRect17")
+				.style("background-color", "#000000");
+
+		//Update a/o color buttons
+		d3.select("#colorType")
+		.style("background-color", buttonColorOff);
+		d3.select("#colorAge")
+		.style("background-color", buttonColorOff);
+		d3.select("#colorCitizenship")
+		.style("background-color", buttonColorOff);
+		d3.select("#colorEventDate")
+		.style("background-color", buttonColorOff);
+		d3.select("#colorExploit")
+		.style("background-color", buttonColorOff);
+		//Update this color button
+		d3.select("#colorGender")
+		.style("background-color", buttonColorOn);
+	}
+
+	function updateUiColorCitizenship() {
+		//Update legend text
+		d3.select("#legend01Text")
+		.text("Africa");
+		d3.select("#legend02Text")
+		.text("Asia");
+		d3.select("#legend03Text")
+		.text("Europe");
+		d3.select("#legend04Text")
+		.text("North America");
+		d3.select("#legend05Text")
+		.text("South America");
+		d3.select("#legend06Text")
+		.text("n/a");
+		d3.select("#legend07Text")
+		.text("");
+		d3.select("#legend08Text")
+		.text("");
+		d3.select("#legend09Text")
+		.text("");
+		d3.select("#legend10Text")
+		.text("");
+		d3.select("#legend11Text")
+				.text("");
+		d3.select("#legend12Text")
+				.text("");
+		d3.select("#legend13Text")
+				.text("");
+		d3.select("#legend14Text")
+				.text("");
+		d3.select("#legend15Text")
+				.text("");
+		d3.select("#legend16Text")
+				.text("");
+		d3.select("#legend17Text")
+				.text("");
+		//Update legend rectangels
+		d3.select("#legendRect01")
+		.style("background-color", "#700e06");		//africa (green)
+		d3.select("#legendRect02")
+		.style("background-color", "#366b1c");		//asia (red)
+		d3.select("#legendRect03")
+		.style("background-color", "#0f285f");		//europe (blue)
+		d3.select("#legendRect04")
+		.style("background-color", "#601787");		//nam (purp)
+		d3.select("#legendRect05")
+		.style("background-color", "#7c266a");		//sam (pink)
+		d3.select("#legendRect06")
+		.style("background-color", "#657d89");
+		d3.select("#legendRect07")
+		.style("background-color", "#000000");
+		d3.select("#legendRect08")
+		.style("background-color", "#000000");
+		d3.select("#legendRect09")
+		.style("background-color", "#000000");
+		d3.select("#legendRect10")
+		.style("background-color", "#000000");
+		d3.select("#legendRect11")
+				.style("background-color", "#000000");
+		d3.select("#legendRect12")
+				.style("background-color", "rgba(0,0,0,0)");
+		d3.select("#legendRect13")
+				.style("background-color", "rgba(0,0,0,0)");
+		d3.select("#legendRect14")
+				.style("background-color", "rgba(0,0,0,0)");
+		d3.select("#legendRect15")
+				.style("background-color", "rgba(0,0,0,0)");
+		d3.select("#legendRect16")
+				.style("background-color", "rgba(0,0,0,0)");;
+		d3.select("#legendRect17")
+				.style("background-color", "rgba(0,0,0,0)");
+
+		//Update a/o color buttons
+		d3.select("#colorType")
+		.style("background-color", buttonColorOff);
+		d3.select("#colorAge")
+		.style("background-color", buttonColorOff);
+		d3.select("#colorGender")
+		.style("background-color", buttonColorOff);
+		d3.select("#colorEventDate")
+		.style("background-color", buttonColorOff);
+		d3.select("#colorExploit")
+		.style("background-color", buttonColorOff);
+		//Update this color button
+		d3.select("#colorCitizenship")
+		.style("background-color", buttonColorOn);
+	}
+	function updateUiColorExploit() {
+		//Update legend text
+		d3.select("#legend01Text")
+				.text("Africa");
+		d3.select("#legend02Text")
+				.text("Asia");
+		d3.select("#legend03Text")
+				.text("Europe");
+		d3.select("#legend04Text")
+				.text("North America");
+		d3.select("#legend05Text")
+				.text("South America");
+		d3.select("#legend06Text")
+				.text("n/a");
+		d3.select("#legend07Text")
+				.text("");
+		d3.select("#legend08Text")
+				.text("");
+		d3.select("#legend09Text")
+				.text("");
+		d3.select("#legend10Text")
+				.text("");
+		d3.select("#legend11Text")
+				.text("");
+		d3.select("#legend12Text")
+				.text("");
+		d3.select("#legend13Text")
+				.text("");
+		d3.select("#legend14Text")
+				.text("");
+		d3.select("#legend15Text")
+				.text("");
+		d3.select("#legend16Text")
+				.text("");
+		d3.select("#legend17Text")
+				.text("");
+		//Update legend rectangels
+		d3.select("#legendRect01")
+				.style("background-color", "#700e06");		//africa (green)
+		d3.select("#legendRect02")
+				.style("background-color", "#366b1c");		//asia (red)
+		d3.select("#legendRect03")
+				.style("background-color", "#0f285f");		//europe (blue)
+		d3.select("#legendRect04")
+				.style("background-color", "#601787");		//nam (purp)
+		d3.select("#legendRect05")
+				.style("background-color", "#7c266a");		//sam (pink)
+		d3.select("#legendRect06")
+				.style("background-color", "#657d89");
+		d3.select("#legendRect07")
+		.style("background-color", "#000000");
+		d3.select("#legendRect08")
+		.style("background-color", "#000000");
+		d3.select("#legendRect09")
+		.style("background-color", "#000000");
+		d3.select("#legendRect10")
+		.style("background-color", "#000000");
+		d3.select("#legendRect11")
+				.style("background-color", "#000000");
+		d3.select("#legendRect12")
+				.style("background-color", "rgba(0,0,0,0)");
+		d3.select("#legendRect13")
+				.style("background-color", "rgba(0,0,0,0)");
+		d3.select("#legendRect14")
+				.style("background-color", "rgba(0,0,0,0)");
+		d3.select("#legendRect15")
+				.style("background-color", "rgba(0,0,0,0)");
+		d3.select("#legendRect16")
+				.style("background-color", "rgba(0,0,0,0)");
+
+		d3.select("#legendRect17")
+				.style("background-color", "#000000");
+
+		//Update a/o color buttons
+
+		d3.select("#colorType")
+		.style("background-color", buttonColorOff);
+		d3.select("#colorAge")
+		.style("background-color", buttonColorOff);
+		d3.select("#colorGender")
+		.style("background-color", buttonColorOff);
+		d3.select("#colorEventDate")
+		.style("background-color", buttonColorOff);
+		d3.select("#colorCitizenship")
+		.style("background-color", buttonColorOff);
+		//Update this color button
+		d3.select("#colorExploit")
+		.style("background-color", buttonColorOn);
+	}
+	function updateUiColorEventDate() {
+		// //Update legend text
+		d3.select("#legend01Text")
+            .text("2002");
+		d3.select("#legend02Text")
+            .text("2003");
+		d3.select("#legend03Text")
+            .text("2004");
+		d3.select("#legend04Text")
+		.text("2005");
+		d3.select("#legend05Text")
+		.text("2006");
+		d3.select("#legend06Text")
+		.text("2007");
+		d3.select("#legend07Text")
+		.text("2008");
+		d3.select("#legend08Text")
+		.text("2009");
+		d3.select("#legend09Text")
+		.text("2010");
+		d3.select("#legend10Text")
+		.text("2011");
+		d3.select("#legend11Text")
+				.text("2012");
+		d3.select("#legend12Text")
+				.text("2013");
+		d3.select("#legend13Text")
+				.text("2014");
+		d3.select("#legend14Text")
+				.text("2015");
+		d3.select("#legend15Text")
+				.text("2016");
+		d3.select("#legend16Text")
+				.text("2017");
+		d3.select("#legend17Text")
+				.text("2018");
+
+		d3.select("#legendRect01")
+		.style("background-color", "#d3161a");
+		d3.select("#legendRect02")
+		.style("background-color", "#ba5d1c");
+		d3.select("#legendRect03")
+		.style("background-color", "#db9d42");
+		d3.select("#legendRect04")
+		.style("background-color", "#fff451" );
+		d3.select("#legendRect05")
+		.style("background-color", "#b2d94d");
+		d3.select("#legendRect06")
+		.style("background-color", "#759c4e");
+		d3.select("#legendRect07")
+		.style("background-color", "#3b6e37");
+		d3.select("#legendRect08")
+		.style("background-color", "#3b886c");
+		d3.select("#legendRect09")
+		.style("background-color", "#739b97");
+		d3.select("#legendRect10")
+		.style("background-color", "#43a5cb");
+		d3.select("#legendRect11")
+				.style("background-color", "#2e6c94");
+		d3.select("#legendRect12")
+				.style("background-color", "#4053a2");
+		d3.select("#legendRect13")
+				.style("background-color", "#5f409b");
+		d3.select("#legendRect14")
+				.style("background-color", "#712d79");
+		d3.select("#legendRect15")
+				.style("background-color", "#9d8199");
+		d3.select("#legendRect16")
+				.style("background-color", "#717276");
+		d3.select("#legendRect17")
+				.style("background-color", "#d3d5d2");
+
+		//Update a/o color buttons
+
+		d3.select("#colorType")
+		.style("background-color", buttonColorOff);
+		d3.select("#colorAge")
+		.style("background-color", buttonColorOff);
+		d3.select("#colorGender")
+		.style("background-color", buttonColorOff);
+		d3.select("#colorCitizenship")
+		.style("background-color", buttonColorOff);
+		d3.select("#colorExploit")
+		.style("background-color", buttonColorOff);
+		//Update this color button
+		d3.select("#colorEventDate")
+		.style("background-color", buttonColorOn);
+	}
+
+	function getRandomInt(min, max) {
+		min = Math.ceil(min);
+		max = Math.floor(max);
+		return Math.floor(Math.random() * (max - min + 1)) + min;
+	}
+
+    function updateFact(_currentColorString, _currentOrderString) {
+		if (!currentOrder) {
+			console.log(currentOrder)
+			currentOrder = 'event'
+		}
+		if (!currentColor) {
+			console.log(currentColor)
+			currentColor = 'type'
+		}
+
+		factIndex = getRandomInt(0,3)
+		console.log(factIndex);
+        if (currentOrder === 'exploit') {
+            if (currentColor === 'type') {
+            	facts = ["91.8% of people exploited in the United States are trafficked for sexual exploitation*",
+					"77.1% of people exploited in the Russia are trafficked for forced labor*",
+					"91.8% of people exploited in the United States are trafficked for sexual exploitation*",
+					"77.1% of people exploited in the Russia are trafficked for forced labor*" ]
+                d3.select("#victimTitle")
+                    .text(facts[factIndex]);
+            } else if (currentColor === 'age') {
+            	facts =["40.7% of people exploited in the United States are between 9 and 17 years old*",
+					"17.7% of people exploited in Moldova are between 0 and 8 years old*",
+					"99.3% of the ages of the victims in the Philippines are unknown.",
+					"85.9% of victims exploited in Africa are between the ages of 0-17."]
+                d3.select("#victimTitle")
+                    .text(facts[factIndex]);
+            } else if (currentColor === 'gender') {
+            	facts=["90.9% of people exploited in the United States are female.",
+					"86.2% of people exploited in Indonesia are male.",
+					"68.8% of people exploited in Philippines are male.",
+					"90.9% of people exploited in the United States are female."]
+                d3.select("#victimTitle")
+                    .text(facts[factIndex]);
+            } else if (currentColor === 'citizenship') {
+            	facts=["100% of people exploited in Moldova are from Moldova.",
+					"71.6% of people exploited in the United States are from unknown origins.",
+					"0% of people exploited in Russia are from Russia.",
+					"68.8% of people exploited in Indonesia are from Myanmar"]
+                d3.select("#victimTitle")
+                    .text(facts[factIndex]);
+            } else if (currentColor === 'event') {
+				facts=["There are only 84 reports from Afghanistan, all reported before 2015. Afghans are the 3rd most vulnerable.**",
+					"100% of people trafficked in the United States were reported between 2015 and 2017.",
+					"100% of people trafficked in Philippines were reported in 2016.",
+					"There are no recorded reports from the countries that have the worst government response rating (D)**"]
+                d3.select("#victimTitle")
+                    .text(facts[factIndex]);
+            } else if (currentColor === 'exploit') {
+            	facts=["39.1% of reports come from the United States.*",
+					"3% of reports come from Africa.*",
+					"There are only 79 reports from the top 5 countries that are estimated to have 19,065,000 victims of human trafficking. **",
+					"There are only 79 reports from the top 5 countries that are estimated to have 19,065,000 victims of human trafficking. **"]
+                d3.select("#victimTitle")
+                    .text(facts[factIndex]);
+            }
+        } else if (currentOrder === 'type') {
+			if (currentColor === 'exploit') {
+				facts=['81.3% of people exploited for sexual exploitation are exploited in the United States.*',
+					'48.1% of people trafficked for forced labour are exploited in Asia.*',
+					'81.3% of people exploited for sexual exploitation are exploited in the United States.*',
+					'48.1% of people trafficked for forced labour are exploited in Asia.*'
+				]
+                d3.select("#victimTitle")
+                    .text(facts[factIndex]);
+            } else if (currentColor === 'age') {
+				facts=['35.8% of people trafficked for forced labour are between 30 and 38 years old.*',
+					'31.6% of people trafficked for sexual exploitatoin are between the ages of 9 and 17.*',
+					'53.2% of people trafficked for sexual exploitatoin are younger than 21.*',
+					'31.6% of people trafficked for sexual exploitatoin are between the ages of 9 and 17.*']
+                d3.select("#victimTitle")
+                    .text(facts[factIndex]);
+            } else if (currentColor === 'gender') {
+				facts=['96% of people trafficked for sexual exploitation are female.',
+					'100% of people trafficked for forced marriage are female.',
+					'54.5% of people trafficked for forced labour are male.',
+					'45.5% of people trafficked for forced labour are female,']
+                d3.select("#victimTitle")
+                    .text(facts[factIndex]);
+            } else if (currentColor === 'citizenship') {
+				facts=['47.1% of people trafficked for sexual exploitation are from the United States.*',
+					'63.2% of people trafficked for forced labour are from Asia.*',
+					'100% of reports for forced marriage are from Asia.',
+					'74.9% of unknown cases are from Europe.*']
+                d3.select("#victimTitle")
+                    .text(facts[factIndex]);
+            } else if (currentColor === 'event') {
+				facts=['33.5% of sexual exploitation reports were reported in 2017. (2017 accounts for 18.8% of total reports).',
+					'100% of forced marriage reports were reported in 2017. (2017 accounts for 18.8% of total reports).',
+					'84.8% of sexual exploitation reports were reported during or after 2015.',
+					'80% of forced labour reports were reported during or after 2014.']
+                d3.select("#victimTitle")
+                    .text(facts[factIndex]);
+            } else if (currentColor === 'type') {
+            	facts=["52.5% of people are trafficked for sexual exploitation.*",
+					"27.3% of people are trafficked for forced labour.*",
+					"52.5% of people are trafficked for sexual exploitation.*",
+					"27.3% of people are trafficked for forced labour.*"]
+                d3.select("#victimTitle")
+                    .text(facts[factIndex]);
+            }
+        } else if (currentOrder === 'age') {
+            if (currentColor === 'type') {
+            	facts=["31.6% of people trafficked for sexual exploitation are between the ages of 9 and 17.*",
+				"57.8% of people trafficked for forced labour are older than 30.*",
+					"31.6% of people trafficked for sexual exploitation are between the ages of 9 and 17.*",
+					"57.8% of people trafficked for forced labour are older than 30.*"
+				]
+                d3.select("#victimTitle")
+                    .text(facts[factIndex]);
+            } else if (currentColor === 'exploit') {
+            	facts=["44.9% of trafficked victims between the ages of 9 and 17 are exploited in the United States",
+				"86.7% of trafficked victims over 48 years old are exploited in Europe",
+				"63.7% of trafficked victims between the ages of 0 and 8 are exploited in Europe",
+				"54.5% of trafficked victims between the ages of 30 and 38 are exploited in Europe"]
+                d3.select("#victimTitle")
+                    .text(facts[factIndex]);
+            } else if (currentColor === 'gender') {
+            	facts=["73.2% of victims between the ages of 9 and 17 are female",
+					"93.3% of victims between the ages of 18 and 21 are female"
+					,"54% of victims between the ages of 39 to 47 are male",
+					"52.2% of victims between the ages of 0 and 8 are female"]
+                d3.select("#victimTitle")
+                    .text(facts[factIndex]);
+            } else if (currentColor === 'citizenship') {
+            	facts=["45.4% of victims between the ages of 9 and 17 come from Europe.*", "66.8% of victims between the ages of 0 and 8 come from Moldova.*",
+				"81% of victims of unknown age come from the Philippines.*", "66.8% of victims between the ages of 0 and 8 come from Moldova.*"]
+                d3.select("#victimTitle")
+                    .text(facts[factIndex]);
+            } else if (currentColor === 'event') {
+            	facts=["44.7% of reports for victims between the ages of 9 and 17 were reported after 2016","44.7% of reports for victims between the ages of 9 and 17 were reported after 2016"
+				,"44.7% of reports for victims between the ages of 9 and 17 were reported after 2016","44.7% of reports for victims between the ages of 9 and 17 were reported after 2016"]
+                d3.select("#victimTitle")
+                    .text(facts[factIndex]);
+            } else if (currentColor === 'age') {
+            	facts=["38.27% of ages are unknown", "39.4% of victims are 20 and under", "12% of victims are 39 and older",  "39.4% of victims are 20 and under"]
+                d3.select("#victimTitle")
+                    .text(facts[factIndex]);
+            }
+        } else if (currentOrder === 'gender') {
+            if (currentColor === 'type') {
+                facts=["64.5% of females are trafficked for sexual exploitation",'63.6% of males are trafficked for forced labor',
+					"15.9% of females are traffickeed for forced labor.","64.5% of females are trafficked for sexual exploitation"]
+                d3.select("#victimTitle")
+                    .text(facts[factIndex]);
+            } else if (currentColor === 'age') {
+            	facts=["42.8% of trafficked females are younger than 21 years old*","24.3% of trafficked females are 30 years or older.*",
+				"31.2% of trafficked males are 20 years old or younger.*", "50.3% of trafficked males are 30 years or older.*"]
+                d3.select("#victimTitle")
+                    .text(facts[factIndex]);
+            } else if (currentColor === 'exploit') {
+            	facts=["38.2% of trafficked females are exploited in the United States","39.8% of trafficked males are exploited in Europe",
+				"16.3% of trafficked males are exploited in Ukraine","38.2% of trafficked females are exploited in the United States"]
+                d3.select("#victimTitle")
+                    .text(facts[factIndex]);
+            } else if (currentColor === 'citizenship') {
+            	facts=["47.4% of trafficked males are trafficked from Asia.*", "41.6% of trafficked females are trafficked from Europe.*",
+					"28.3% of trafficked females are trafficked from the Philippines.*","41.6% of trafficked females are trafficked from Europe.*" ]
+                d3.select("#victimTitle")
+                    .text(facts[factIndex]);
+            } else if (currentColor === 'event') {
+            	facts=["69.7% of reports for female victims were reported after 2014.", "34.8% of reports for female victims were reported during 2016",
+				"62.5% of reports for male victims were reported after 2014", "33% of reports for male victims were reported during 2016"]
+                d3.select("#victimTitle")
+                    .text(facts[factIndex]);
+            } else if (currentColor === 'gender') {
+       facts=["73.6% of reported victims are female", "26.4% of reported victims are male",
+		   "73.6% of reported victims are female", "26.4% of reported victims are male"]
+                d3.select("#victimTitle")
+                    .text(facts[factIndex]);
+            }
+        } else if (currentOrder === 'citizen') {
+			if (currentColor === 'type') {
+				facts=["100% of victims from the United States were trafficked for sexual exploitation.*","82.4% of victims from Africa were trafficked for forced labour.*",
+				"100% of victims from Myanmar were trafficked for forced labour.*", "73% of victims from Europe were trafficked for unknown reasons.*"]
+                d3.select("#victimTitle")
+                    .text(facts[factIndex]);
+            } else if (currentColor === 'age') {
+				facts=["99.4% of registered victims from Philippines are missing age information.","81.9% of registered victims from Africa are younger than 18 years old",
+				"54.7% of victims from Ukraine are older than 30 years old", "67.1% of victims from Uganda are younger than 8"]
+                d3.select("#victimTitle")
+                    .text(facts[factIndex]);
+            } else if (currentColor === 'gender') {
+			    facts=["99.7% of trafficked victims from the United States are female", "Althouh 26.4% of the trafficked victims are males, 58.1% of trafficked victims from Africa are male",
+					"Although males make up 26.4% of the trafficked victims, 93.9% of trafficked victims from Mexico are male", "92.2% of trafficked victims from Indonesia are female"]
+                d3.select("#victimTitle")
+                    .text(facts[factIndex]);
+            } else if (currentColor === 'exploit') {
+				facts=["91.4% of victims from Africa are are exploited in Africa", "95.5% of victims from Myanmar are exploited in Myanmar",
+				"87.4% of victims from Indonesia were exploited outside of Indonesia", "95.9% of victims from unknown origins are exploited in the United States"]
+                d3.select("#victimTitle")
+                    .text(facts[factIndex]);
+            } else if (currentColor === 'event') {
+				facts=["98.7% of reported victims from the Philippines were reported in 2016", "55.5% of existing reports on victims from Africa were reported before 2008",
+					"89.5% of reports on victims from Colombia were reported before 2004", "All 13 reports from Eritrea were reported in 2014. Eritrea has the second highest prevalence index rank in the world"]
+                d3.select("#victimTitle")
+                    .text(facts[factIndex]);
+            } else if (currentColor === 'citizenship') {
+				facts=["There are only 252 accounts from the 7 countries with the higheest prevalence", "The top 20 most vulnerable countries make up 1.8% of reports with data.*",
+					"There are only 252 accounts from the 7 countries with the higheest prevalence", "The top 20 most vulnerable countries make up 1.8% of reports with data.*"]
+                d3.select("#victimTitle")
+                    .text(facts[factIndex]);
+            }
+        } else if (currentOrder === 'event') {
+			if (currentColor === 'type') {
+				facts=["96% of reports from 2011 reported unknown/unavailable information on type of exploitation",
+				"81.5% of victims reported in 2017 were reported for sexual exploitation",
+				"32.% of victims exploited for forced labor were reported in 2016",
+				"28.5% of victims reported in 2018 were exploited for unknown purposes"]
+				d3.select("#victimTitle")
+						.text(facts[factIndex]);
+			} else if (currentColor === 'age') {
+				facts=["87.3% of victims reported with unknown ages were reported after 2015",
+				"72.3% of victims reported in 2016 are of unknown age",
+				"32.7% of victims reported in 2014 were between 30 and 38 years old.",
+				"13.9% of victims reported in 2009 were between 0 and 8 years old."]
+				d3.select("#victimTitle")
+						.text(facts[factIndex]);
+			} else if (currentColor === 'gender') {
+				facts=["0 males victims were reported in 2002 and 2004",
+				"50.8% of victims reported in 2018 were male",
+				"82.7% of victims reported in 2017 were female","0 males victims were reported in 2002 and 2004"
+				]
+				d3.select("#victimTitle")
+						.text(facts[factIndex]);
+			} else if (currentColor === 'citizenship') {
+				facts=["75.1% of reports in 2016 were of victims from Philippines. 64.4% of reports from Asia were reported in 2016.", "There are 0 reports of victimsfrom the United States before 2010, in 2014, and in 2018.",
+						"93.3% of reports in 2002 were of victims from Europe","55.6% of reports for victims from Africa were between 2005 and 2007."]
+				d3.select("#victimTitle")
+						.text(facts[factIndex]);
+			} else if (currentColor === 'exploit') {
+				facts=["62.4% of reports in 2012 were of victims exploited in Ukraine", "72.2% of reports in 2017 were of victims exploited in the United States",
+				"78.7% of reports between 2002 and 2003 were of victims exploited from unknown locations", "31.8% of reports in 2005 were of victims exploited in Africa"]
+				d3.select("#victimTitle")
+						.text(facts[factIndex]);
+			} else if (currentColor === 'eventDate') {
+				facts=["34.1% of total reports were made in 2016", ".45% of total reports were made in 2004",
+					"65.1% of total reports were made between 2015 and 2017", ".68% of total reports were made in 2003"]
+				d3.select("#victimTitle")
+						.text(facts[factIndex]);
+			}
+		}
+    }
+
+	//Given a data index return the x and y coordinates in the array
+	function getXYCoordinates(_thisIndex, _width, _height) {
+		//Sorting from top to bottom, starting at upper left hand corner
+		maxHeight = _height - (_height%(rectSize+rectSpacerH)) - dataPadding;
+		var myList = [];
+		myList[0] = parseInt(((1 + _thisIndex) * (rectSize + rectSpacerH)) / maxHeight) * (rectSpacerW + rectSize) + 35
+		myList[1] = parseInt(maxHeight - (_thisIndex*(rectSize+rectSpacerH))%maxHeight) -70
+		return myList;
+	}
+	//Map values
+	function map_range(value, low1, high1, low2, high2) {
+		return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
+	}
+	</script>
+	<!-- ****** Scripts ****** -->
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="../js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$("#myModal").modal('show');
+	});
+	</script>
+</body>
+</html>
