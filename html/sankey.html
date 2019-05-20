@@ -97,17 +97,20 @@
     <p id="buttonText">Lowest GDP</p>
 </div>
 
+<div id="messageTitle2">
+    <p>The Sankey Diagrams are better depicted <a href="https://observablehq.com/@cindysi21/sankey-diagrams">here</a>
+        due to complications embedding Observable charts.
+    </p>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
 <script type="module">
     import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
-    import define from "https://api.observablehq.com/@cindysi21/big-data-viz-analysis-attempt-final-https-observablehq-com/2.js?v=3";
-
+    import define from "https://api.observablehq.com/@cindysi21/sankey-diagrams.js?v=3";
     const runtime = new Runtime();
 
 
     const main = runtime.module(define, name => {
-        console.log(name)
         if (name === "chart") {
             return new Inspector(document.querySelector("#chart"));
         }
