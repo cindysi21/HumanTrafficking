@@ -10,10 +10,10 @@ body {
     left: 60px;
 	width:100%;
 	padding: 5px;
+    font-family: Lora, "Serif";
 	text-align: left;
 	font-weight: 300;
 	font-size: 1.9em;
-	font-family: Lora,"Serif";
 	color: var(--descriptionColor);
 }
 
@@ -27,7 +27,7 @@ body {
 	font-weight: 300;
 	font-size: .75em;
 	color: darkgray;
-	font-family: Avenir, "Serif";
+	font-family: Lato, "Serif";
 }
 
 #messageTitle2{
@@ -40,7 +40,7 @@ body {
 	font-weight: 300;
 	font-size: .75em;
 	color: darkgray;
-	font-family: Avenir, "Serif";
+	font-family: Lato, "Serif";
 }
 
 #titleText{
@@ -50,7 +50,7 @@ body {
 }
 #buttonText{
 	margin-top: 4px;
-	font-family: Avenir, "Serif";
+	font-family: Lato, "Serif";
 	text-align: center;
 	font-weight: 300;
     font-size: 1.07em;
@@ -80,7 +80,7 @@ body {
 #nameText {
 	position: absolute;
 	top: 460px;
-	font-family: Avenir;
+	font-family: Lato;
 	left: 390px;
 }
 #base {
@@ -88,7 +88,7 @@ body {
 	position: absolute;
 	top: 200px;
 	width: 100%;
-	font-family: Avenir, "Serif";
+	font-family: Lato, "Serif";
 	text-align: center;
 	font-weight: 300;
 	font-size: .9em;
@@ -119,7 +119,7 @@ li p{
 }
 
 #legends{
-	font-family: Avenir, "Serif";
+	font-family: Lato, "Serif";
 	color: #ffffff;
 	position: absolute;
 	top: 245px;
@@ -131,7 +131,7 @@ li p{
 }
 
 #legends2 {
-	font-family: Avenir, "Serif";
+	font-family: Lato, "Serif";
 	position: absolute;
 	top: 245px;
 	left: 1220px;
@@ -355,7 +355,7 @@ li p{
 #results {
 	color: white;
 	position: absolute;
-    font-family: Avenir, "Serif";
+    font-family: Lato, "Serif";
     top: 280px;
 	width: 100%;
 	text-align: center;
@@ -414,7 +414,7 @@ li p{
 	font-size: 1em;
 	font-style: italic;
 	text-align: center;
-	font-family: Avenir, "Serif";
+	font-family: Lato, "Serif";
 }
 
 #loading.hidden{
@@ -427,7 +427,7 @@ textarea[type=text], select {
 	border: 1px solid #ccc;
 	box-sizing: border-box;
 	position: absolute;
-	line-height: -10px;
+	line-height: 0px;
 	resize: none;
 
 }

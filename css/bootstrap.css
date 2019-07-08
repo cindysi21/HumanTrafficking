@@ -5,7 +5,7 @@
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 html {
-  font-family: Avenir, "Serif";
+  font-family: Lato, "Serif";
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
@@ -164,7 +164,7 @@ fieldset {
   padding: 0.35em 0.625em 0.75em;
 }
 legend {
-  font-family: Avenir, "Serif";
+  font-family: Lato, "Serif";
   border: 0;
   padding: 0;
 }
@@ -1685,7 +1685,7 @@ fieldset {
 }
 
 legend {
-  font-family: Avenir, "Serif";
+  font-family: Lato, "Serif";
   display: block;
   width: 100%;
   padding: 0;

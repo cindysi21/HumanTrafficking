@@ -5,7 +5,7 @@ dl {
     max-width: 350px;
     position: relative;
     padding: 40px;
-    font-family: Avenir;
+    font-family: Lato;
 }
 
 dt {
@@ -32,7 +32,7 @@ dd {
 
 #quizText {
     margin-top: 300px;
-    font-family: Avenir, "Serif";
+    font-family: Lato, "Serif";
     text-align: center;
     font-weight: 200;
     font-size: .97em;

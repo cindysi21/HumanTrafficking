@@ -75,7 +75,7 @@
         </div><!--/.nav-collapse -->
     </div>
 </nav>
-<body>
+</body>
 
 <div class="chart" id="chart"></div>
 <div class="button sort" style="background-color: #000000; display: flex;" id="sortSankey">
@@ -98,15 +98,16 @@
 </div>
 
 <div id="messageTitle2">
-    <p>The Sankey Diagrams are better depicted <a href="https://observablehq.com/@cindysi21/sankey-diagrams">here</a>
-        due to complications embedding Observable charts.
+    <p>The Sankey Diagrams can also be found <a href="https://observablehq.com/@cindysi21/sankey-diagrams">here</a>
+        on Observable.
     </p>
+</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
 <script type="module">
     import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
-    import define from "https://api.observablehq.com/@cindysi21/sankey-diagrams.js?v=3";
+    import define from "https://api.observablehq.com/@cindysi21/sankey-diagrams/2.js?v=3";
     const runtime = new Runtime();
 
 
@@ -162,5 +163,4 @@
     })
 
 </script>
-</body>
 </html>
